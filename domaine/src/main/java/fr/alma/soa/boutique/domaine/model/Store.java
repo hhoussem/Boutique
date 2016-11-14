@@ -32,8 +32,8 @@ public class Store {
 		categories.add(category);
 	}
 
-	public void addProduct(Product product) {
-		products.put(product, 0);
+	public void addProduct(Product product, int qty) {
+		products.put(product, qty);
 	}
 	
 	public int getProductQty(Product product){

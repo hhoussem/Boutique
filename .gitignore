@@ -23,3 +23,9 @@ api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles
 *.lst
 *.lst
 domaine/src/main/java/fr/alma/soa/boutique/domaine/model/ShoppingCart.java
+*.properties
+*.jpg
+*.lst
+*.properties
+presentation/target/maven-archiver/pom.properties
+*.properties
