@@ -57,6 +57,7 @@
 			<artifactId>saxon</artifactId>
 			<version>9.1.0.8</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>com.sun</groupId>
 			<artifactId>tools</artifactId>
@@ -64,6 +65,7 @@
 			<scope>system</scope>
 			<systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath>
 		</dependency>
+		 -->
     </dependencies>
 	<modules>
 		<module>infra</module>
