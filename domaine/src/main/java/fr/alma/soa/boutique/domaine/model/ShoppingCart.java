@@ -13,7 +13,7 @@ public class ShoppingCart {
 	}
 	
 	public boolean addProduct(Product product, int qty){
-		if(qty > Store.instance().getProductQty(product))
+		if(qty <= Store.instance().getProductQty(product))
 		{
 			products.put(product,qty);
 			return true;
