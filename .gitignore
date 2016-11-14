@@ -10,3 +10,23 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/bin/
+
+*.properties
+.project
+.settings/org.eclipse.wst.common.project.facet.core.xml
+api/.classpath
+api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+*.properties
+*.lst
+*.properties
+*.lst
+*.lst
+domaine/src/main/java/fr/alma/soa/boutique/domaine/model/ShoppingCart.java
+*.properties
+*.jpg
+*.lst
+*.properties
+presentation/target/maven-archiver/pom.properties
+*.properties
+api/target/maven-archiver/pom.properties
