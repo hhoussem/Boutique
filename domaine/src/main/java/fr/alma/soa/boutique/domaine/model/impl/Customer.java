@@ -33,7 +33,7 @@ public class Customer implements ICustomer {
 	}
 
 	public boolean buy() {
-		if (getShoppingCart().valideCart()) {
+		if (getShoppingCart().validateCart()) {
 			return true;
 		}
 		return false;
