@@ -1,9 +1,11 @@
-package fr.alma.soa.boutique.domaine.model;
+package fr.alma.soa.boutique.domaine.model.impl;
 
-public class Category {
+import fr.alma.soa.boutique.domaine.model.ICategory;
+
+public class Category implements ICategory {
 	private int id;
 	private String name;
-	
+
 	public Category(int id, String name) {
 		super();
 		this.id = id;
@@ -13,9 +15,9 @@ public class Category {
 	public int getId() {
 		return id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 }

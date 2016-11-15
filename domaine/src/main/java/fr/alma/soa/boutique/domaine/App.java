@@ -1,11 +1,8 @@
 package fr.alma.soa.boutique.domaine;
 
-import fr.alma.soa.boutique.domaine.model.*;
+import fr.alma.soa.boutique.domaine.model.impl.*;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
     public static void main( String[] args )
