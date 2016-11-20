@@ -67,7 +67,7 @@
 		</dependency>
 <<<<<<< HEAD
 		 -->
-    </dependencies>
+	</dependencies>
 	<modules>
 		<module>infra</module>
 		<module>domaine</module>

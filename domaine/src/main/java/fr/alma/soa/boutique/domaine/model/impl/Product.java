@@ -1,5 +1,6 @@
 package fr.alma.soa.boutique.domaine.model.impl;
 
+import fr.alma.soa.boutique.domaine.model.ICategory;
 import fr.alma.soa.boutique.domaine.model.IProduct;
 
 public class Product implements IProduct {
@@ -7,7 +8,8 @@ public class Product implements IProduct {
 	private String name;
 	private String description;
 	private float price;
-	private Category category;
+	private ICategory category;
+	private int Stock;
 
 	public Product(int id, String name, String description, float price, Category category) {
 		super();
@@ -16,6 +18,14 @@ public class Product implements IProduct {
 		this.description = description;
 		this.price = price;
 		this.category = category;
+	}
+
+	public Product() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Product(int id2) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
@@ -50,12 +60,20 @@ public class Product implements IProduct {
 		this.price = price;
 	}
 
-	public Category getCategory() {
+	public ICategory getCategory() {
 		return category;
 	}
 
-	public void setCategory(Category category) {
+	public void setCategory(ICategory category) {
 		this.category = category;
+	}
+
+	public int getStock() {
+		return Stock;
+	}
+
+	public void setStock(int stock) {
+		Stock = stock;
 	}
 
 }

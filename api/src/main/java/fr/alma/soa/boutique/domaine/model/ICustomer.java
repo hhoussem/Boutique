@@ -1,6 +1,6 @@
 package fr.alma.soa.boutique.domaine.model;
 
-public interface ICustomer {
+public interface ICustomer extends IModel {
 
 	public boolean addToChar(IProduct product, int qty);
 

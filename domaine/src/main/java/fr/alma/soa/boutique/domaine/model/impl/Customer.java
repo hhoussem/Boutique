@@ -24,6 +24,10 @@ public class Customer implements ICustomer {
 		this.shoppingCart = new ShoppingCart();
 	}
 
+	public Customer() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public boolean addToChar(IProduct product, int qty) {
 		return shoppingCart.addProduct(product, qty);
 	}

@@ -3,7 +3,7 @@ package fr.alma.soa.boutique.domaine.model;
 import java.util.List;
 import java.util.Map;
 
-public interface IStore {
+public interface IStore extends IModel {
 	
 	public void addCustomer(ICustomer customer);
 	

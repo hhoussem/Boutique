@@ -1,6 +1,6 @@
 package fr.alma.soa.boutique.domaine.model;
 
-public interface IShoppingCart {
+public interface IShoppingCart extends IModel {
 
 	public boolean addProduct(IProduct product, int qty);
 
