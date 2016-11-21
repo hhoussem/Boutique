@@ -1,10 +1,12 @@
 package fr.alma.soa.boutique.domaine.factory;
 
+import fr.alma.soa.boutique.api.annotation.Factory;
 import fr.alma.soa.boutique.domaine.model.ICategory;
 import fr.alma.soa.boutique.domaine.model.ICustomer;
 import fr.alma.soa.boutique.domaine.model.IProduct;
 import fr.alma.soa.boutique.domaine.model.impl.*;
 
+@Factory
 public class ModelFactoryImpl implements  ModelFactory{
 
 	@SuppressWarnings("unchecked")

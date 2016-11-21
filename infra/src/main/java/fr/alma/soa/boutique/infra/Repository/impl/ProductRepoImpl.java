@@ -1,12 +1,21 @@
 package fr.alma.soa.boutique.infra.Repository.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import fr.alma.soa.boutique.domaine.factory.ModelFactory;
 import fr.alma.soa.boutique.domaine.model.ICategory;
 import fr.alma.soa.boutique.domaine.model.IProduct;
 import fr.alma.soa.boutique.infra.repository.ProductRepo;
 
+@Repository
 public class ProductRepoImpl implements ProductRepo {
+	
+	private final Logger logger = LoggerFactory.getLogger(ProductRepoImpl.class);
 
+	@Autowired
 	private ModelFactory modelFactory;
 
 	public IProduct getProductById(int id) {
@@ -20,6 +29,7 @@ public class ProductRepoImpl implements ProductRepo {
 		product.setName("Adidas super Star");
 		product.setPrice(120);
 		product.setStock(100);//quantité en stock
+		logger.info("==> Passage dans la couche Infra dans le repository!"+id);
 		return product;
 	}
 

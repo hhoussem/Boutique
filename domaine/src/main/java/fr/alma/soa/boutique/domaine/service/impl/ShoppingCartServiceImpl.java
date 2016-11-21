@@ -1,5 +1,7 @@
 package fr.alma.soa.boutique.domaine.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import fr.alma.soa.boutique.api.exception.BusinessException;
 import fr.alma.soa.boutique.domaine.model.ICustomer;
 import fr.alma.soa.boutique.domaine.model.IOrder;
@@ -8,8 +10,10 @@ import fr.alma.soa.boutique.domaine.model.IShoppingCart;
 import fr.alma.soa.boutique.domaine.service.ShoppingCartService;
 import fr.alma.soa.boutique.infra.repository.ProductRepo;
 
+@Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 	
+	@Autowired
 	private ProductRepo productRepo;
 
 	public IShoppingCart addProductToCaddy(ICustomer customer,IShoppingCart shoppingCart, IProduct prd, int quantity) throws BusinessException {
