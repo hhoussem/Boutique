@@ -1,5 +1,8 @@
 package fr.alma.soa.boutique.infra.Repository.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +34,18 @@ public class ProductRepoImpl implements ProductRepo {
 		product.setStock(100);//quantité en stock
 		logger.info("==> Passage dans la couche Infra dans le repository!"+id);
 		return product;
+	}
+
+	public List<IProduct> getAllProduct() {
+		IProduct product;
+		List<IProduct>  products = new ArrayList<IProduct>();
+		for(int i=0;i<=5;i++){
+			product = modelFactory.getNewModelInstance(IProduct.class);
+			product.setId(i);
+			product.setName("P"+i);
+			products.add(product);			
+		}
+		return products;
 	}
 
 }

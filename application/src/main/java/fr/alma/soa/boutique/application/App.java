@@ -26,5 +26,6 @@ public class App
     	product.setId(132);
     	product.setName("Exemple");
     	boutiqueServices.addProductToCaddy(customer, shoppingCart, product, 2);
+    	boutiqueServices.getAllProductList();
     }
 }

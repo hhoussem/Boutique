@@ -1,5 +1,7 @@
 package fr.alma.soa.boutique.domaine.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import fr.alma.soa.boutique.api.exception.BusinessException;
@@ -41,6 +43,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 			return product.getStock()>=quantity;
 		}
 		return false;
+	}
+	
+	public List<IProduct> getAllProduct(){
+		return productRepo.getAllProduct();
 	}
 
 

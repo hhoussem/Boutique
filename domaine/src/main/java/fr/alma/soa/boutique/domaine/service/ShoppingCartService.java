@@ -1,5 +1,7 @@
 package fr.alma.soa.boutique.domaine.service;
 
+import java.util.List;
+
 import fr.alma.soa.boutique.api.exception.BusinessException;
 import fr.alma.soa.boutique.domaine.model.ICustomer;
 import fr.alma.soa.boutique.domaine.model.IOrder;
@@ -25,4 +27,10 @@ public interface ShoppingCartService {
 	 * @return
 	 */
 	public IOrder doOrder(ICustomer customer, IShoppingCart shoppingCart, String deliveryAdress);
+	
+	/**
+	 * Return la liste des produits
+	 * @return
+	 */
+	public List<IProduct> getAllProduct();
 }
