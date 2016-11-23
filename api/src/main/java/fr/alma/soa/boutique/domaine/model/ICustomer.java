@@ -9,6 +9,8 @@ public interface ICustomer extends IModel {
 	public boolean buy();
 
 	public String getEmail();
+	
+	public void setEmail(String email);
 
 	public String getPassword();
 

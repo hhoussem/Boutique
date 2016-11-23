@@ -14,21 +14,21 @@ import fr.alma.soa.boutique.infra.repository.ProductRepo;
 
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
-	
+
 	@Autowired
 	private ProductRepo productRepo;
 
-	public IShoppingCart addProductToCaddy(ICustomer customer,IShoppingCart shoppingCart, IProduct prd, int quantity) throws BusinessException {
+	public IShoppingCart addProductToCart(ICustomer customer, IShoppingCart shoppingCart, IProduct prd, int quantity)
+			throws BusinessException {
 		IProduct product = productRepo.getProductById(prd.getId());
-		if(product!=null){
-			if(isProductAvailable(prd.getId(), quantity)){
-				//Put here if there are something to do before adding the product to the shopping-cart
+		if(product != null) {
+			if(isProductAvailable(prd.getId(), quantity)) {
 				shoppingCart.addProduct(product, quantity);
-			}else{
-				throw new BusinessException("Quantité du produit indisponible!");
+			} else {
+				throw new BusinessException("Requested quantity not available!");
 			}
-		}else{
-			throw new BusinessException("Produit introuvalbe!");
+		} else {
+			throw new BusinessException("Product not found!");
 		}
 		return shoppingCart;
 	}
@@ -36,18 +36,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	public IOrder doOrder(ICustomer customer, IShoppingCart shoppingCart, String deliveryAdress) {
 		return null;
 	}
-	
-	public boolean isProductAvailable(int productId, int quantity){
+
+	public boolean isProductAvailable(int productId, int quantity) {
 		IProduct product = productRepo.getProductById(productId);
-		if(product!=null){
-			return product.getStock()>=quantity;
+		if (product != null) {
+			return product.getStockQty() >= quantity;
 		}
 		return false;
 	}
-	
-	public List<IProduct> getAllProduct(){
-		return productRepo.getAllProduct();
-	}
-
 
 }

@@ -10,7 +10,7 @@ import fr.alma.soa.boutique.domaine.model.IShoppingCart;
 
 public interface ShoppingCartService {
 	/**
-	 * Add some product to the customer's caddy
+	 * Add some product to the customer's cart
 	 * @param customer
 	 * @param shoppingCart
 	 * @param products
@@ -18,7 +18,7 @@ public interface ShoppingCartService {
 	 * @return
 	 * @throws BusinessException
 	 */
-	public IShoppingCart addProductToCaddy(ICustomer customer,IShoppingCart shoppingCart, IProduct products, int quantity) throws BusinessException;
+	public IShoppingCart addProductToCart(ICustomer customer,IShoppingCart shoppingCart, IProduct products, int quantity) throws BusinessException;
 	/**
 	 * A customer wants to order his shoppingCart
 	 * @param customer
@@ -28,9 +28,4 @@ public interface ShoppingCartService {
 	 */
 	public IOrder doOrder(ICustomer customer, IShoppingCart shoppingCart, String deliveryAdress);
 	
-	/**
-	 * Return la liste des produits
-	 * @return
-	 */
-	public List<IProduct> getAllProduct();
 }
