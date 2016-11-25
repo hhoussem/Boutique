@@ -26,4 +26,6 @@ public interface IProduct extends IModel {
 	public void setCategory(ICategory category);
 
 	public void setStockQty(int stock);
+	
+	public boolean equals(IProduct product);
 }

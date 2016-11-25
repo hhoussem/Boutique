@@ -12,20 +12,26 @@ public interface ShoppingCartService {
 	/**
 	 * Add some product to the customer's cart
 	 * @param customer
-	 * @param shoppingCart
 	 * @param products
 	 * @param quantity
 	 * @return
 	 * @throws BusinessException
 	 */
-	public IShoppingCart addProductToCart(ICustomer customer,IShoppingCart shoppingCart, IProduct products, int quantity) throws BusinessException;
-	/**
+	public IShoppingCart addProductToCart(ICustomer customer,IProduct product, int quantity) throws BusinessException;
+
+		/**
 	 * A customer wants to order his shoppingCart
 	 * @param customer
 	 * @param shoppingCart
 	 * @param deliveryAdress
 	 * @return
 	 */
+	
+	
+	public IShoppingCart removeProductFromCart(ICustomer customer,IProduct product);
+	
+	public IShoppingCart updateProductQtyFromCart(ICustomer customer,IProduct product, int quantity);
+	
 	public IOrder doOrder(ICustomer customer, IShoppingCart shoppingCart, String deliveryAdress);
 	
 }

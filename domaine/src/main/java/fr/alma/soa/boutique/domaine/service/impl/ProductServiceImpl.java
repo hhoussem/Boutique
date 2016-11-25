@@ -20,4 +20,19 @@ public class ProductServiceImpl implements ProductService{
 		return productRepo.getAllProduct();
 	}
 
+	public IProduct getProductById(int id) {
+		
+		return productRepo.getProductById(id);
+	}
+
+	public void addProduct(IProduct product) {
+		productRepo.addProduct(product);
+		
+	}
+
+	public void removeProduct(int id) {
+		productRepo.removeProduct(id);
+		
+	}
+
 }

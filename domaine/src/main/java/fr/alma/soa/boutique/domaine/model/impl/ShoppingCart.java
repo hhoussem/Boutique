@@ -4,6 +4,7 @@ import fr.alma.soa.boutique.domaine.model.IProduct;
 import fr.alma.soa.boutique.domaine.model.IShoppingCart;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class ShoppingCart implements IShoppingCart {
@@ -34,6 +35,18 @@ public class ShoppingCart implements IShoppingCart {
 	public boolean validateCart() {
 		// before buying validate qantities and available qantitites
 		return true;
+	}
+
+	public IProduct getProduct(int id) {
+		IProduct product =null;
+		Iterator iter = products.entrySet().iterator();
+		while(iter.hasNext()){
+			Map.Entry<IProduct, Integer> pair = (Map.Entry<IProduct, Integer>) iter.next();
+			if(pair.getKey().getId() == id){
+				break;
+			}
+		}
+		return product;
 	}
 
 }

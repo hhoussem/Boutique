@@ -10,5 +10,12 @@ public interface ProductService {
 	 * @return
 	 */
 	public List<IProduct> getAllProduct();
+	
+	public IProduct getProductById(int id);
+	
+	public void addProduct(IProduct product);
+	
+	public void removeProduct(int id);
+	
 
 }

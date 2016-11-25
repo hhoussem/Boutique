@@ -22,13 +22,14 @@ public class BoutiqueWebServices extends ApplicationEntry {
 		this.productService = context.getBean(ProductService.class);
 	}
 	
-	public IShoppingCart addProductToCart(ICustomer customer,IShoppingCart shoppingCart, IProduct products, int quantity) {
+	public IShoppingCart addProductToCart(ICustomer customer, IProduct product, int quantity) {
 		try {
-			return shoppingCartService.addProductToCart(customer, shoppingCart, products, quantity);
+			 shoppingCartService.addProductToCart(customer, product, quantity);
+			
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return customer.getShoppingCart();
 	}
 	
 	public List<IProduct> getAllProductList(){

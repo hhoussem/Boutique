@@ -76,4 +76,8 @@ public class Product implements IProduct {
 		stockQty = stock;
 	}
 
+	public boolean equals(IProduct product) {
+		return this.getId()==product.getId();
+	}
+
 }

@@ -11,6 +11,8 @@ public interface IShoppingCart extends IModel {
 	public void addProduct(IProduct product, int qty);
 
 	public void removeProduct(IProduct product);
+	
+	public IProduct getProduct(int id);
 
 	public boolean validateCart();
 
