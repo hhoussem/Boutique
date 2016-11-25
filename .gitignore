@@ -14,6 +14,7 @@ hs_err_pid*
 
 *.properties
 .project
+*.classpath
 .settings/org.eclipse.wst.common.project.facet.core.xml
 api/.classpath
 api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
