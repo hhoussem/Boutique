@@ -4,6 +4,7 @@ package fr.alma.soa.boutique.application.webservice.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import fr.alma.soa.boutique.api.exception.BusinessException;
 import fr.alma.soa.boutique.application.webservice.BoutiqueWebServices;
@@ -13,6 +14,7 @@ import fr.alma.soa.boutique.domaine.model.IShoppingCart;
 import fr.alma.soa.boutique.domaine.service.ProductService;
 import fr.alma.soa.boutique.domaine.service.ShoppingCartService;
 
+@Service
 public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 
 	@Autowired
