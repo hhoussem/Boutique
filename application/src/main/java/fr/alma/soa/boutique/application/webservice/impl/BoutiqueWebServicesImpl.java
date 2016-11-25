@@ -22,9 +22,9 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 	@Autowired
 	private ProductService productService;
 	
-	public IShoppingCart addProductToCart(ICustomer customer,IShoppingCart shoppingCart, IProduct products, int quantity) {
+	public IShoppingCart addProductToCart(ICustomer customer, IProduct products, int quantity) {
 		try {
-			return shoppingCartService.addProductToCart(customer, shoppingCart, products, quantity);
+			return shoppingCartService.addProductToCart(customer, products, quantity);
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}
