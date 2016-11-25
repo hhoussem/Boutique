@@ -13,26 +13,17 @@ import fr.alma.soa.boutique.domaine.model.IShoppingCart;
  * Init class (instead of database)
  *
  */
-public class Infra 
+public class Database 
 {
-	@Autowired
 	private ModelFactory modelFactory;
-	
-	private static  Infra infra = null; 
 	
 	private List<ICategory> categories = new ArrayList<ICategory>();
 	private List<IProduct> products = new ArrayList<IProduct>();
 	private List<ICustomer> customers = new ArrayList<ICustomer>();
 	private List<IShoppingCart> shoppingCarts = new ArrayList<IShoppingCart>();
     
-	public static Infra getInstance(){
-		if(infra == null){
-			infra = new Infra();
-		}
-		return infra;
-	}
-	
-	private Infra(){
+	public Database(ModelFactory modelFactory){
+		this.modelFactory = modelFactory;
 		init();
 	}
 	

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import fr.alma.soa.boutique.domaine.factory.ModelFactory;
 import fr.alma.soa.boutique.domaine.model.ICategory;
 import fr.alma.soa.boutique.domaine.model.IProduct;
-import fr.alma.soa.boutique.infra.Infra;
+import fr.alma.soa.boutique.infra.Database;
 import fr.alma.soa.boutique.infra.repository.ProductRepo;
 
 @Repository
@@ -20,6 +20,9 @@ public class ProductRepoImpl implements ProductRepo {
 
 	@Autowired
 	private ModelFactory modelFactory;
+	
+	@Autowired
+	private Database database;
 
 	public IProduct getProductById(int id) {
 		// TODO Auto-generated method stub
@@ -37,8 +40,7 @@ public class ProductRepoImpl implements ProductRepo {
 	}
 
 	public List<IProduct> getAllProduct() {
-
-		return Infra.getInstance().getProducts();
+		return database.getProducts();
 	}
 
 }

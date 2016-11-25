@@ -12,6 +12,12 @@
 	<context:component-scan base-package="fr.alma.soa.boutique.application" />
 	<context:component-scan base-package="fr.alma.soa.boutique.domaine.service" />
 	<context:component-scan base-package="fr.alma.soa.boutique.domaine.factory" />
+	<context:component-scan base-package="fr.alma.soa.boutique.infra" />
 	<context:component-scan base-package="fr.alma.soa.boutique.infra.repository" />
+	
+	<!-- Pour simuler les accés à base de données -->
+	 <bean id="database" class="fr.alma.soa.boutique.infra.Database">
+    	  <constructor-arg ref="modelFactoryImpl"/>
+   	</bean>
 
 </beans>
