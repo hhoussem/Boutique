@@ -1,5 +1,8 @@
 package fr.alma.soa.boutique.application.boot;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import fr.alma.soa.boutique.application.ApplicationEntry;
 import fr.alma.soa.boutique.application.webservice.BoutiqueWebServices;
 import fr.alma.soa.boutique.domaine.model.ICustomer;
@@ -10,13 +13,14 @@ import fr.alma.soa.boutique.domaine.model.impl.Customer;
 import fr.alma.soa.boutique.domaine.model.impl.Product;
 import fr.alma.soa.boutique.domaine.model.impl.ShoppingCart;
 
+@Component
 public class App 
 {
-    public static void main( String[] args )
-    {
-    	ApplicationEntry boutiqueApp = new ApplicationEntry();
-    	BoutiqueWebServices boutiqueServices = new BoutiqueWebServices();
-    	ICustomer customer = new Customer();
+	@Autowired
+	BoutiqueWebServices boutiqueServices;
+	
+	private void run(){
+		ICustomer customer = new Customer();
     	customer.setAddress("tax@yahoo.fr");
     	customer.setName("Toto");
     	customer.setPassword("password");
@@ -28,5 +32,11 @@ public class App
     	product.setName("Exemple");
     	boutiqueServices.addProductToCart(customer, shoppingCart, product, 2);
     	boutiqueServices.getAllProductList();
+	}
+	
+    public static void main( String[] args )
+    {
+    	ApplicationEntry entry = new ApplicationEntry();
+    	entry.getApp().run();
     }
 }
