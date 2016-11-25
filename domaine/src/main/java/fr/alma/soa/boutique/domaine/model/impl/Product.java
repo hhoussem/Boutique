@@ -9,7 +9,7 @@ public class Product implements IProduct {
 	private String description;
 	private float price;
 	private ICategory category;
-	private int Stock;
+	private int stockQty;
 
 	public Product(int id, String name, String description, float price, Category category) {
 		super();
@@ -68,12 +68,12 @@ public class Product implements IProduct {
 		this.category = category;
 	}
 
-	public int getStock() {
-		return Stock;
+	public int getStockQty() {
+		return stockQty;
 	}
 
-	public void setStock(int stock) {
-		Stock = stock;
+	public void setStockQty(int stock) {
+		stockQty = stock;
 	}
 
 }

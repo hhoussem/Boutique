@@ -13,7 +13,7 @@ public interface IProduct extends IModel {
 
 	public ICategory getCategory();
 
-	public int getStock();
+	public int getStockQty();
 
 	public void setId(int id);
 
@@ -25,5 +25,5 @@ public interface IProduct extends IModel {
 
 	public void setCategory(ICategory category);
 
-	public void setStock(int stock);
+	public void setStockQty(int stock);
 }
