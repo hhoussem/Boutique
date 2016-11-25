@@ -9,5 +9,9 @@ public interface ProductRepo {
 	
 	public IProduct getProductById(int id);
 	
+	public void addProduct(IProduct product);
+	
+	public void removeProduct(int id);
+	
 	public List<IProduct> getAllProduct();
 }

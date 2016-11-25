@@ -28,20 +28,8 @@ public class Customer implements ICustomer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public boolean addToChar(IProduct product, int qty) {
-		return shoppingCart.addProduct(product, qty);
-	}
 
-	public void removeFromChar(IProduct product) {
-		shoppingCart.removeProduct(product);
-	}
 
-	public boolean buy() {
-		if (getShoppingCart().validateCart()) {
-			return true;
-		}
-		return false;
-	}
 
 	public String getEmail() {
 		return email;

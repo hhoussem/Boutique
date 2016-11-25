@@ -13,14 +13,18 @@ public class ShoppingCart implements IShoppingCart {
 	public ShoppingCart() {
 		this.products = new HashMap<IProduct, Integer>();
 	}
+	
+	public Map<IProduct, Integer> getProducts() {
+		return products;
+	}
 
-	public boolean addProduct(IProduct product, int qty) {
-		if (qty <= Store.instance().getProductQty(product)) {
+	public void setProducts(Map<IProduct, Integer> products) {
+		this.products = products;
+	}
+
+	public void addProduct(IProduct product, int qty) {
+		
 			products.put(product, qty);
-			return true;
-		}
-		return false;
-
 	}
 
 	public void removeProduct(IProduct product) {

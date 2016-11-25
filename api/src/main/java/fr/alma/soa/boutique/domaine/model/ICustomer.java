@@ -2,12 +2,6 @@ package fr.alma.soa.boutique.domaine.model;
 
 public interface ICustomer extends IModel {
 
-	public boolean addToChar(IProduct product, int qty);
-
-	public void removeFromChar(IProduct product);
-
-	public boolean buy();
-
 	public String getEmail();
 	
 	public void setEmail(String email);

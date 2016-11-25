@@ -1,8 +1,14 @@
 package fr.alma.soa.boutique.domaine.model;
 
-public interface IShoppingCart extends IModel {
+import java.util.Map;
 
-	public boolean addProduct(IProduct product, int qty);
+public interface IShoppingCart extends IModel {
+	
+	public Map<IProduct, Integer> getProducts();
+
+	public void setProducts(Map<IProduct, Integer> products);
+
+	public void addProduct(IProduct product, int qty);
 
 	public void removeProduct(IProduct product);
 
