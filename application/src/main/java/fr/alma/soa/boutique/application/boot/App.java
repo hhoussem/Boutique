@@ -1,5 +1,6 @@
-package fr.alma.soa.boutique.application;
+package fr.alma.soa.boutique.application.boot;
 
+import fr.alma.soa.boutique.application.ApplicationEntry;
 import fr.alma.soa.boutique.application.webservice.BoutiqueWebServices;
 import fr.alma.soa.boutique.domaine.model.ICustomer;
 import fr.alma.soa.boutique.domaine.model.IProduct;
