@@ -14,7 +14,7 @@ public class CustomerDto{
 	private String address;
 	private String creditCardInfo;
 	private boolean isLogged;
-	private ShoppingCartDto shoppingCart;
+	private ShoppingCartDto shoppingCart  = new ShoppingCartDto();
 
 	public CustomerDto(String email, String password, String name) {
 		super();

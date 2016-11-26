@@ -26,7 +26,6 @@ public class ProductRepoImpl implements ProductRepo {
 	private Database database;
 
 	public Product getProductById(int id) {
-		
 		return database.getProducts().get(id);
 	}
 	

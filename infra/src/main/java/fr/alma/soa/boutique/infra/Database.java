@@ -1,15 +1,10 @@
 package fr.alma.soa.boutique.infra;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import fr.alma.soa.boutique.domaine.factory.ModelFactory;
 import fr.alma.soa.boutique.domaine.model.Category;
 import fr.alma.soa.boutique.domaine.model.Customer;
 import fr.alma.soa.boutique.domaine.model.Product;
-import fr.alma.soa.boutique.domaine.model.ShoppingCart;
 /**
  * Init class (instead of database)
  *
@@ -21,6 +16,9 @@ public class Database
 	private Map<Integer,Product> products = new HashMap<Integer, Product>();
 	private Map<String,Customer> customers = new HashMap<String,Customer>();
 	
+	public Database(){
+		init();
+	}
 	public Map<Integer,Category> getCategories() {
 		return categories;
 	}

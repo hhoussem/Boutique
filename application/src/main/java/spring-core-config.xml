@@ -17,8 +17,6 @@
 	<context:component-scan base-package="fr.alma.soa.boutique.infra.repository" />
 	
 	<!-- Pour simuler les accés à base de données -->
-	 <bean id="database" class="fr.alma.soa.boutique.infra.Database">
-    	  <constructor-arg ref="modelFactoryImpl"/>
-   	</bean>
+	 <bean id="database" class="fr.alma.soa.boutique.infra.Database" />
 
 </beans>

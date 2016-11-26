@@ -5,10 +5,6 @@ import org.springframework.stereotype.Component;
 
 import fr.alma.soa.boutique.application.ApplicationEntry;
 import fr.alma.soa.boutique.application.webservice.BoutiqueWebServices;
-import fr.alma.soa.boutique.domaine.model.Category;
-import fr.alma.soa.boutique.domaine.model.Customer;
-import fr.alma.soa.boutique.domaine.model.Product;
-import fr.alma.soa.boutique.domaine.model.ShoppingCart;
 import fr.alma.soa.boutique.domaine.model.dto.CategoryDto;
 import fr.alma.soa.boutique.domaine.model.dto.CustomerDto;
 import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
@@ -29,7 +25,7 @@ public class App
     	ShoppingCartDto shoppingCart = new ShoppingCartDto();
     	ProductDto product = new ProductDto();
     	product.setCategory(new CategoryDto());
-    	product.setId(132);
+    	product.setId(17);
     	product.setName("Exemple");
     	boutiqueServices.addProductToCart(customer, product, 2);
     	boutiqueServices.getAllProductList();
