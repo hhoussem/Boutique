@@ -1,11 +1,11 @@
 
-package fr.alma.soa.boutique.domaine.model;
+package fr.alma.soa.boutique.domaine.model.dto;
 
 import fr.alma.soa.boutique.domaine.model.Customer;
 import fr.alma.soa.boutique.domaine.model.Product;
 import fr.alma.soa.boutique.domaine.model.ShoppingCart;;
 
-public class Customer{
+public class CustomerDto{
 
 	private int id;
 	private String email;
@@ -14,18 +14,18 @@ public class Customer{
 	private String address;
 	private String creditCardInfo;
 	private boolean isLogged;
-	private ShoppingCart shoppingCart;
+	private ShoppingCartDto shoppingCart;
 
-	public Customer(String email, String password, String name) {
+	public CustomerDto(String email, String password, String name) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.name = name;
 		this.isLogged = false;
-		this.shoppingCart = new ShoppingCart();
+		this.shoppingCart = new ShoppingCartDto();
 	}
 
-	public Customer() {
+	public CustomerDto() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -80,11 +80,11 @@ public class Customer{
 		this.isLogged = isLogged;
 	}
 
-	public ShoppingCart getShoppingCart() {
+	public ShoppingCartDto getShoppingCart() {
 		return shoppingCart;
 	}
 
-	public void setShoppingCart(ShoppingCart shoppingCart) {
+	public void setShoppingCart(ShoppingCartDto shoppingCart) {
 		this.shoppingCart = shoppingCart;
 	}
 

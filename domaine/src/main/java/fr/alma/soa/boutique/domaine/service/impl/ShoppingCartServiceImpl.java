@@ -1,14 +1,12 @@
 package fr.alma.soa.boutique.domaine.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import fr.alma.soa.boutique.api.exception.BusinessException;
-import fr.alma.soa.boutique.domaine.model.Customer;
-import fr.alma.soa.boutique.domaine.model.Order;
+import fr.alma.soa.boutique.domaine.model.dto.*;
+import fr.alma.soa.boutique.domaine.factory.DtoModelFactory;
+import fr.alma.soa.boutique.domaine.factory.ModelFactory;
 import fr.alma.soa.boutique.domaine.model.Product;
-import fr.alma.soa.boutique.domaine.model.ShoppingCart;
 import fr.alma.soa.boutique.domaine.service.ShoppingCartService;
 import fr.alma.soa.boutique.infra.repository.ProductRepo;
 import fr.alma.soa.boutique.infra.repository.ShoppingCartRepo;
@@ -21,13 +19,18 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	
 	@Autowired
 	private ShoppingCartRepo shoppingCartRepo;
+	
+	@Autowired
+	private ModelFactory modelFactory;
+	
+	@Autowired
+	private DtoModelFactory dtoModelFactory;
 
-	public ShoppingCart addProductToCart(Customer customer, Product prd, int quantity)
-			throws BusinessException {
+	public ShoppingCartDto addProductToCart(CustomerDto customer,ProductDto prd, int quantity) throws BusinessException{
 		Product product = productRepo.getProductById(prd.getId());
 		if(product != null) {
 			if(isProductAvailable(prd.getId(), quantity)) {
-				customer.getShoppingCart().addProduct(product, quantity);
+				customer.getShoppingCart().addProduct(dtoModelFactory.getProductInstance(product), quantity);
 			} else {
 				throw new BusinessException("Requested quantity not available!");
 			}
@@ -35,10 +38,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 			throw new BusinessException("Product not found!");
 		}
 		return customer.getShoppingCart();
-	}
-
-	public Order doOrder(Customer customer, ShoppingCart shoppingCart, String deliveryAdress) {
-		return null;
 	}
 
 	public boolean isProductAvailable(int productId, int quantity) {
@@ -50,17 +49,24 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	}
 
 
-	public ShoppingCart removeProductFromCart(Customer customer, Product product) {
+	public ShoppingCartDto removeProductFromCart(CustomerDto customer, ProductDto product) {
 		if(customer.getShoppingCart().getProduct(product.getId()) != null){
+			customer.getShoppingCart().removeProduct(product);
 			return customer.getShoppingCart();
 		}
 		return null;
 	}
 
-	public ShoppingCart updateProductQtyFromCart(Customer customer, Product product, int quantity) {
-		
-		return customer.getShoppingCart();
+	public ShoppingCartDto updateProductQtyFromCart(CustomerDto customer, ProductDto product, int quantity) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	public OrderDto doOrder(CustomerDto customer, ShoppingCartDto shoppingCart, String deliveryAdress) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 

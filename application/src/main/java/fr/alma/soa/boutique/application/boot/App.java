@@ -9,6 +9,10 @@ import fr.alma.soa.boutique.domaine.model.Category;
 import fr.alma.soa.boutique.domaine.model.Customer;
 import fr.alma.soa.boutique.domaine.model.Product;
 import fr.alma.soa.boutique.domaine.model.ShoppingCart;
+import fr.alma.soa.boutique.domaine.model.dto.CategoryDto;
+import fr.alma.soa.boutique.domaine.model.dto.CustomerDto;
+import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
+import fr.alma.soa.boutique.domaine.model.dto.ShoppingCartDto;
 
 @Component
 public class App 
@@ -17,14 +21,14 @@ public class App
 	BoutiqueWebServices boutiqueServices;
 	
 	private void run(){
-		Customer customer = new Customer();
+		CustomerDto customer = new CustomerDto();
     	customer.setAddress("tax@yahoo.fr");
     	customer.setName("Toto");
     	customer.setPassword("password");
     	customer.setCreditCardInfo("13424234235");
-    	ShoppingCart shoppingCart = new ShoppingCart();
-    	Product product = new Product();
-    	product.setCategory(new Category());
+    	ShoppingCartDto shoppingCart = new ShoppingCartDto();
+    	ProductDto product = new ProductDto();
+    	product.setCategory(new CategoryDto());
     	product.setId(132);
     	product.setName("Exemple");
     	boutiqueServices.addProductToCart(customer, product, 2);

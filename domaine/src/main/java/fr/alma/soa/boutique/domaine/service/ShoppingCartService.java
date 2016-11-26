@@ -1,12 +1,10 @@
 package fr.alma.soa.boutique.domaine.service;
 
-import java.util.List;
-
 import fr.alma.soa.boutique.api.exception.BusinessException;
-import fr.alma.soa.boutique.domaine.model.Customer;
-import fr.alma.soa.boutique.domaine.model.Order;
-import fr.alma.soa.boutique.domaine.model.Product;
-import fr.alma.soa.boutique.domaine.model.ShoppingCart;
+import fr.alma.soa.boutique.domaine.model.dto.CustomerDto;
+import fr.alma.soa.boutique.domaine.model.dto.OrderDto;
+import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
+import fr.alma.soa.boutique.domaine.model.dto.ShoppingCartDto;
 
 public interface ShoppingCartService {
 	/**
@@ -17,7 +15,7 @@ public interface ShoppingCartService {
 	 * @return
 	 * @throws BusinessException
 	 */
-	public ShoppingCart addProductToCart(Customer customer,Product product, int quantity) throws BusinessException;
+	public ShoppingCartDto addProductToCart(CustomerDto customer,ProductDto product, int quantity) throws BusinessException;
 
 		/**
 	 * A customer wants to order his shoppingCart
@@ -28,10 +26,10 @@ public interface ShoppingCartService {
 	 */
 	
 	
-	public ShoppingCart removeProductFromCart(Customer customer,Product product);
+	public ShoppingCartDto removeProductFromCart(CustomerDto customer,ProductDto product);
 	
-	public ShoppingCart updateProductQtyFromCart(Customer customer,Product product, int quantity);
+	public ShoppingCartDto updateProductQtyFromCart(CustomerDto customer,ProductDto product, int quantity);
 	
-	public Order doOrder(Customer customer, ShoppingCart shoppingCart, String deliveryAdress);
+	public OrderDto doOrder(CustomerDto customer, ShoppingCartDto shoppingCart, String deliveryAdress);
 	
 }

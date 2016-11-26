@@ -1,11 +1,15 @@
 package fr.alma.soa.boutique.domaine.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import fr.alma.soa.boutique.domaine.factory.DtoModelFactory;
+import fr.alma.soa.boutique.domaine.factory.ModelFactory;
 import fr.alma.soa.boutique.domaine.model.Product;
+import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
 import fr.alma.soa.boutique.domaine.service.ProductService;
 import fr.alma.soa.boutique.infra.repository.ProductRepo;
 
@@ -15,18 +19,28 @@ public class ProductServiceImpl implements ProductService{
 	@Autowired
 	private ProductRepo productRepo;
 	
-	public List<Product> getAllProduct() {
-		
-		return productRepo.getAllProduct();
+	@Autowired
+	private ModelFactory modelFactory;
+	
+	@Autowired
+	private DtoModelFactory dtoModelFactory;
+	
+	
+	public List<ProductDto> getAllProduct() {
+		List<ProductDto> products = new ArrayList<ProductDto>();
+		for(Product pr : productRepo.getAllProduct()){
+			products.add(dtoModelFactory.getProductInstance(pr));
+		}
+		return products;
 	}
 
-	public Product getProductById(int id) {
+	public ProductDto getProductById(int id) {
 		
-		return productRepo.getProductById(id);
+		return dtoModelFactory.getProductInstance(productRepo.getProductById(id));
 	}
 
-	public void addProduct(Product product) {
-		productRepo.addProduct(product);
+	public void addProduct(ProductDto product) {
+		productRepo.addProduct(modelFactory.getProductInstance(product));
 		
 	}
 

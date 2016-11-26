@@ -11,18 +11,19 @@ import fr.alma.soa.boutique.domaine.model.dto.OrderDto;
 import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
 import fr.alma.soa.boutique.domaine.model.dto.ShoppingCartDto;
 
-public interface ModelFactory {
-
-	public Product getProductInstance(ProductDto dto);
+public interface DtoModelFactory {
 	
-	public Category getCategoryInstance(CategoryDto dto);
-
-	public Customer getCustomerInstance(CustomerDto dto);
+	public ProductDto getProductInstance(Product entity);
 	
-	public ShoppingCart getCartInstance(ShoppingCartDto dto);
+	public CategoryDto getCategoryInstance(Category entity);
+
+	public CustomerDto getCustomerInstance(Customer entity);
+	
+	public ShoppingCartDto getCartInstance(ShoppingCart entity);
 	
 
-	public Order getOrderInstance(OrderDto dto);
+	public OrderDto getOrderInstance(Order entity);
+
 
 
 }
