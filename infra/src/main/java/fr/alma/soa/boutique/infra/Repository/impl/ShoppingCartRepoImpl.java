@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.alma.soa.boutique.domaine.factory.ModelFactory;
-import fr.alma.soa.boutique.domaine.model.ICustomer;
-import fr.alma.soa.boutique.domaine.model.IProduct;
+import fr.alma.soa.boutique.domaine.model.Customer;
+import fr.alma.soa.boutique.domaine.model.Product;
 import fr.alma.soa.boutique.infra.Database;
 import fr.alma.soa.boutique.infra.repository.ShoppingCartRepo;
 
@@ -19,17 +19,17 @@ public class ShoppingCartRepoImpl implements ShoppingCartRepo{
 	@Autowired
 	private Database database;
 	
-	public void addProductToCart(ICustomer customer, IProduct product, int quantity) {
+	public void addProductToCart(Customer customer, Product product, int quantity) {
 		database.getCustomers().get(customer).getShoppingCart().addProduct(product, quantity);
 		
 	}
 
-	public void removeProductFromCart(ICustomer customer, IProduct product) {
+	public void removeProductFromCart(Customer customer, Product product) {
 		database.getCustomers().get(customer).getShoppingCart().removeProduct(product);
 		
 	}
 
-	public void updateProductQtyFromCart(ICustomer customer, IProduct product, int quantity) {
+	public void updateProductQtyFromCart(Customer customer, Product product, int quantity) {
 		database.getCustomers().get(customer).getShoppingCart().addProduct(product,quantity);
 		
 	}

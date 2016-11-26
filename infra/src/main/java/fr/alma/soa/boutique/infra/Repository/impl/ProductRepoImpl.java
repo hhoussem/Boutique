@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.alma.soa.boutique.domaine.factory.ModelFactory;
-import fr.alma.soa.boutique.domaine.model.ICategory;
-import fr.alma.soa.boutique.domaine.model.IProduct;
+import fr.alma.soa.boutique.domaine.model.Category;
+import fr.alma.soa.boutique.domaine.model.Product;
 import fr.alma.soa.boutique.infra.Database;
 import fr.alma.soa.boutique.infra.repository.ProductRepo;
 
@@ -25,12 +25,12 @@ public class ProductRepoImpl implements ProductRepo {
 	@Autowired
 	private Database database;
 
-	public IProduct getProductById(int id) {
+	public Product getProductById(int id) {
 		
 		return database.getProducts().get(id);
 	}
 	
-	public void addProduct(IProduct product) {
+	public void addProduct(Product product) {
 		database.getProducts().put(product.getId(), product);
 		
 	}
@@ -40,8 +40,8 @@ public class ProductRepoImpl implements ProductRepo {
 		
 	}
 
-	public List<IProduct> getAllProduct() {
-		return new ArrayList<IProduct>(database.getProducts().values());
+	public List<Product> getAllProduct() {
+		return new ArrayList<Product>(database.getProducts().values());
 	}
 
 

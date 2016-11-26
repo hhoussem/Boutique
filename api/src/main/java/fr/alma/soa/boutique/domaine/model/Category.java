@@ -1,8 +1,8 @@
-package fr.alma.soa.boutique.domaine.model.impl;
+package fr.alma.soa.boutique.domaine.model;
 
-import fr.alma.soa.boutique.domaine.model.ICategory;
+import fr.alma.soa.boutique.domaine.model.Category;
 
-public class Category implements ICategory {
+public class Category{
 	private int id;
 	
 

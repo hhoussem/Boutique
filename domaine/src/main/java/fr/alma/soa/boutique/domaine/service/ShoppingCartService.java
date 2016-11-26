@@ -3,10 +3,10 @@ package fr.alma.soa.boutique.domaine.service;
 import java.util.List;
 
 import fr.alma.soa.boutique.api.exception.BusinessException;
-import fr.alma.soa.boutique.domaine.model.ICustomer;
-import fr.alma.soa.boutique.domaine.model.IOrder;
-import fr.alma.soa.boutique.domaine.model.IProduct;
-import fr.alma.soa.boutique.domaine.model.IShoppingCart;
+import fr.alma.soa.boutique.domaine.model.Customer;
+import fr.alma.soa.boutique.domaine.model.Order;
+import fr.alma.soa.boutique.domaine.model.Product;
+import fr.alma.soa.boutique.domaine.model.ShoppingCart;
 
 public interface ShoppingCartService {
 	/**
@@ -17,7 +17,7 @@ public interface ShoppingCartService {
 	 * @return
 	 * @throws BusinessException
 	 */
-	public IShoppingCart addProductToCart(ICustomer customer,IProduct product, int quantity) throws BusinessException;
+	public ShoppingCart addProductToCart(Customer customer,Product product, int quantity) throws BusinessException;
 
 		/**
 	 * A customer wants to order his shoppingCart
@@ -28,10 +28,10 @@ public interface ShoppingCartService {
 	 */
 	
 	
-	public IShoppingCart removeProductFromCart(ICustomer customer,IProduct product);
+	public ShoppingCart removeProductFromCart(Customer customer,Product product);
 	
-	public IShoppingCart updateProductQtyFromCart(ICustomer customer,IProduct product, int quantity);
+	public ShoppingCart updateProductQtyFromCart(Customer customer,Product product, int quantity);
 	
-	public IOrder doOrder(ICustomer customer, IShoppingCart shoppingCart, String deliveryAdress);
+	public Order doOrder(Customer customer, ShoppingCart shoppingCart, String deliveryAdress);
 	
 }

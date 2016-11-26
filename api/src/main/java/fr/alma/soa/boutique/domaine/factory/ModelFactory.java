@@ -1,6 +1,6 @@
 package fr.alma.soa.boutique.domaine.factory;
 
-import fr.alma.soa.boutique.domaine.model.IProduct;
+import fr.alma.soa.boutique.domaine.model.Product;
 
 public interface ModelFactory {
 
@@ -16,6 +16,6 @@ public interface ModelFactory {
 	 * @param id
 	 * @return
 	 */
-	IProduct createProductInstance(int id);
+	Product createProductInstance(int id);
 
 }

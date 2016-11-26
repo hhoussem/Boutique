@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import fr.alma.soa.boutique.domaine.model.IProduct;
+import fr.alma.soa.boutique.domaine.model.Product;
 import fr.alma.soa.boutique.domaine.service.ProductService;
 import fr.alma.soa.boutique.infra.repository.ProductRepo;
 
@@ -15,17 +15,17 @@ public class ProductServiceImpl implements ProductService{
 	@Autowired
 	private ProductRepo productRepo;
 	
-	public List<IProduct> getAllProduct() {
+	public List<Product> getAllProduct() {
 		
 		return productRepo.getAllProduct();
 	}
 
-	public IProduct getProductById(int id) {
+	public Product getProductById(int id) {
 		
 		return productRepo.getProductById(id);
 	}
 
-	public void addProduct(IProduct product) {
+	public void addProduct(Product product) {
 		productRepo.addProduct(product);
 		
 	}

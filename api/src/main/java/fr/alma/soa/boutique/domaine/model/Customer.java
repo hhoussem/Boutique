@@ -1,11 +1,11 @@
 
-package fr.alma.soa.boutique.domaine.model.impl;
+package fr.alma.soa.boutique.domaine.model;
 
-import fr.alma.soa.boutique.domaine.model.ICustomer;
-import fr.alma.soa.boutique.domaine.model.IProduct;
-import fr.alma.soa.boutique.domaine.model.IShoppingCart;;
+import fr.alma.soa.boutique.domaine.model.Customer;
+import fr.alma.soa.boutique.domaine.model.Product;
+import fr.alma.soa.boutique.domaine.model.ShoppingCart;;
 
-public class Customer implements ICustomer {
+public class Customer{
 
 	private String email;
 	private String password;
@@ -13,7 +13,7 @@ public class Customer implements ICustomer {
 	private String address;
 	private String creditCardInfo;
 	private boolean isLogged;
-	private IShoppingCart shoppingCart;
+	private ShoppingCart shoppingCart;
 
 	public Customer(String email, String password, String name) {
 		super();
@@ -79,11 +79,11 @@ public class Customer implements ICustomer {
 		this.isLogged = isLogged;
 	}
 
-	public IShoppingCart getShoppingCart() {
+	public ShoppingCart getShoppingCart() {
 		return shoppingCart;
 	}
 
-	public void setShoppingCart(IShoppingCart shoppingCart) {
+	public void setShoppingCart(ShoppingCart shoppingCart) {
 		this.shoppingCart = shoppingCart;
 	}
 

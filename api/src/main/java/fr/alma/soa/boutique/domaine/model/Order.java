@@ -1,17 +1,17 @@
-package fr.alma.soa.boutique.domaine.model.impl;
+package fr.alma.soa.boutique.domaine.model;
 
 import java.util.Date;
 
-import fr.alma.soa.boutique.domaine.model.ICustomer;
-import fr.alma.soa.boutique.domaine.model.IOrder;
-import fr.alma.soa.boutique.domaine.model.IShoppingCart;
+import fr.alma.soa.boutique.domaine.model.Customer;
+import fr.alma.soa.boutique.domaine.model.Order;
+import fr.alma.soa.boutique.domaine.model.ShoppingCart;
 
-public class Order  implements IOrder{
+public class Order{
 	private String numOrder;
-	private IShoppingCart shoppingCart;
+	private ShoppingCart shoppingCart;
 	private double priceTTC;
 	private String deliveryAdress;
-	private ICustomer customer;
+	private Customer customer;
 	private Date orderDate;
 	private String status;
 	
@@ -21,10 +21,10 @@ public class Order  implements IOrder{
 	public void setNumOrder(String numOrder) {
 		this.numOrder = numOrder;
 	}
-	public IShoppingCart getShoppingCart() {
+	public ShoppingCart getShoppingCart() {
 		return shoppingCart;
 	}
-	public void setShoppingCart(IShoppingCart shoppingCart) {
+	public void setShoppingCart(ShoppingCart shoppingCart) {
 		this.shoppingCart = shoppingCart;
 	}
 	public double getPriceTTC() {
@@ -39,10 +39,10 @@ public class Order  implements IOrder{
 	public void setDeliveryAdress(String deliveryAdress) {
 		this.deliveryAdress = deliveryAdress;
 	}
-	public ICustomer getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
-	public void setCustomer(ICustomer customer) {
+	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 	public Date getOrderDate() {

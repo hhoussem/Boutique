@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import fr.alma.soa.boutique.api.exception.BusinessException;
-import fr.alma.soa.boutique.domaine.model.ICustomer;
-import fr.alma.soa.boutique.domaine.model.IOrder;
-import fr.alma.soa.boutique.domaine.model.IProduct;
-import fr.alma.soa.boutique.domaine.model.IShoppingCart;
+import fr.alma.soa.boutique.domaine.model.Customer;
+import fr.alma.soa.boutique.domaine.model.Order;
+import fr.alma.soa.boutique.domaine.model.Product;
+import fr.alma.soa.boutique.domaine.model.ShoppingCart;
 import fr.alma.soa.boutique.domaine.service.ShoppingCartService;
 import fr.alma.soa.boutique.infra.repository.ProductRepo;
 import fr.alma.soa.boutique.infra.repository.ShoppingCartRepo;
@@ -22,9 +22,9 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	@Autowired
 	private ShoppingCartRepo shoppingCartRepo;
 
-	public IShoppingCart addProductToCart(ICustomer customer, IProduct prd, int quantity)
+	public ShoppingCart addProductToCart(Customer customer, Product prd, int quantity)
 			throws BusinessException {
-		IProduct product = productRepo.getProductById(prd.getId());
+		Product product = productRepo.getProductById(prd.getId());
 		if(product != null) {
 			if(isProductAvailable(prd.getId(), quantity)) {
 				customer.getShoppingCart().addProduct(product, quantity);
@@ -37,12 +37,12 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		return customer.getShoppingCart();
 	}
 
-	public IOrder doOrder(ICustomer customer, IShoppingCart shoppingCart, String deliveryAdress) {
+	public Order doOrder(Customer customer, ShoppingCart shoppingCart, String deliveryAdress) {
 		return null;
 	}
 
 	public boolean isProductAvailable(int productId, int quantity) {
-		IProduct product = productRepo.getProductById(productId);
+		Product product = productRepo.getProductById(productId);
 		if (product != null) {
 			return product.getStockQty() >= quantity;
 		}
@@ -50,14 +50,14 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	}
 
 
-	public IShoppingCart removeProductFromCart(ICustomer customer, IProduct product) {
+	public ShoppingCart removeProductFromCart(Customer customer, Product product) {
 		if(customer.getShoppingCart().getProduct(product.getId()) != null){
 			return customer.getShoppingCart();
 		}
 		return null;
 	}
 
-	public IShoppingCart updateProductQtyFromCart(ICustomer customer, IProduct product, int quantity) {
+	public ShoppingCart updateProductQtyFromCart(Customer customer, Product product, int quantity) {
 		
 		return customer.getShoppingCart();
 	}

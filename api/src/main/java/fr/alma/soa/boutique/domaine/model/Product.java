@@ -1,14 +1,14 @@
-package fr.alma.soa.boutique.domaine.model.impl;
+package fr.alma.soa.boutique.domaine.model;
 
-import fr.alma.soa.boutique.domaine.model.ICategory;
-import fr.alma.soa.boutique.domaine.model.IProduct;
+import fr.alma.soa.boutique.domaine.model.Category;
+import fr.alma.soa.boutique.domaine.model.Product;
 
-public class Product implements IProduct {
+public class Product{
 	private int id;
 	private String name;
 	private String description;
 	private float price;
-	private ICategory category;
+	private Category category;
 	private int stockQty;
 
 	public Product(int id, String name, String description, float price, Category category) {
@@ -60,11 +60,11 @@ public class Product implements IProduct {
 		this.price = price;
 	}
 
-	public ICategory getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(ICategory category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 
@@ -76,7 +76,7 @@ public class Product implements IProduct {
 		stockQty = stock;
 	}
 
-	public boolean equals(IProduct product) {
+	public boolean equals(Product product) {
 		return this.getId()==product.getId();
 	}
 

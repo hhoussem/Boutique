@@ -6,72 +6,67 @@ import java.util.List;
 import java.util.Map;
 
 import fr.alma.soa.boutique.domaine.factory.ModelFactory;
-import fr.alma.soa.boutique.domaine.model.ICategory;
-import fr.alma.soa.boutique.domaine.model.ICustomer;
-import fr.alma.soa.boutique.domaine.model.IProduct;
-import fr.alma.soa.boutique.domaine.model.IShoppingCart;
+import fr.alma.soa.boutique.domaine.model.Category;
+import fr.alma.soa.boutique.domaine.model.Customer;
+import fr.alma.soa.boutique.domaine.model.Product;
+import fr.alma.soa.boutique.domaine.model.ShoppingCart;
 /**
  * Init class (instead of database)
  *
  */
 public class Database 
 {
-	private ModelFactory modelFactory;
 	
-	private Map<Integer,ICategory> categories = new HashMap<Integer,ICategory>();
-	private Map<Integer,IProduct> products = new HashMap<Integer, IProduct>();
-	private Map<String,ICustomer> customers = new HashMap<String,ICustomer>();
-	public Database(ModelFactory modelFactory){
-		this.modelFactory = modelFactory;
-		init();
-	}
+	private Map<Integer,Category> categories = new HashMap<Integer,Category>();
+	private Map<Integer,Product> products = new HashMap<Integer, Product>();
+	private Map<String,Customer> customers = new HashMap<String,Customer>();
 	
-	public Map<Integer,ICategory> getCategories() {
+	public Map<Integer,Category> getCategories() {
 		return categories;
 	}
 
-	public Map<Integer,IProduct> getProducts() {
+	public Map<Integer,Product> getProducts() {
 		return products;
 	}
 
-	public Map<String,ICustomer> getCustomers() {
+	public Map<String,Customer> getCustomers() {
 		return customers;
 	}
     
     public void init()
     {
     	//categories init
-		ICategory shoesCategory = modelFactory.getNewModelInstance(ICategory.class);
+		Category shoesCategory = new Category();
 		shoesCategory.setId(2345);
 		shoesCategory.setName("Shoes");
 		
-		ICategory phoneCategory = modelFactory.getNewModelInstance(ICategory.class);
+		Category phoneCategory = new Category();
     	phoneCategory.setId(111);
     	phoneCategory.setName("Phone");
 		
     	//products init
-		IProduct adidas = modelFactory.getNewModelInstance(IProduct.class);
+		Product adidas = new Product();
 		adidas.setId(1234);
 		adidas.setCategory(shoesCategory);		
 		adidas.setName("Adidas super Star");
 		adidas.setPrice(120);
 		adidas.setStockQty(100);
 		
-		IProduct puma = modelFactory.getNewModelInstance(IProduct.class);
+		Product puma = new Product();
 		puma.setId(12008);
 		puma.setCategory(shoesCategory);		
 		puma.setName("Puma");
 		puma.setPrice(90);
 		puma.setStockQty(205);
 		
-    	IProduct s7 = modelFactory.getNewModelInstance(IProduct.class);
+    	Product s7 = new Product();
     	s7.setCategory(phoneCategory);
     	s7.setId(91);
     	s7.setName("Galaxy S7");
     	s7.setPrice(500);
     	s7.setStockQty(40);
     	
-    	IProduct xperia = modelFactory.getNewModelInstance(IProduct.class);
+    	Product xperia = new Product();
     	xperia.setCategory(phoneCategory);
     	xperia.setId(17);
     	xperia.setName("Sony Xperia Z5");
@@ -79,7 +74,7 @@ public class Database
     	xperia.setStockQty(60);
     	
     	//customers init
-    	ICustomer c1 = modelFactory.getNewModelInstance(ICustomer.class);
+    	Customer c1 = new Customer();
     	c1.setEmail("toto@gmail.com");
     	c1.setPassword("0000");
     	c1.setName("Michael");

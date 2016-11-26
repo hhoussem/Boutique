@@ -3,12 +3,12 @@ package fr.alma.soa.boutique.application.webservice;
 
 import java.util.List;
 
-import fr.alma.soa.boutique.domaine.model.ICustomer;
-import fr.alma.soa.boutique.domaine.model.IProduct;
-import fr.alma.soa.boutique.domaine.model.IShoppingCart;
+import fr.alma.soa.boutique.domaine.model.Customer;
+import fr.alma.soa.boutique.domaine.model.Product;
+import fr.alma.soa.boutique.domaine.model.ShoppingCart;
 
 public interface BoutiqueWebServices{
 	
-	public IShoppingCart addProductToCart(ICustomer customer, IProduct product, int quantity);
-	public List<IProduct> getAllProductList();
+	public ShoppingCart addProductToCart(Customer customer, Product product, int quantity);
+	public List<Product> getAllProductList();
 }
