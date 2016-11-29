@@ -2,6 +2,7 @@ package fr.alma.soa.boutique.infra.repository;
 
 import java.util.List;
 
+import fr.alma.soa.boutique.domaine.model.Category;
 import fr.alma.soa.boutique.domaine.model.Product;
 
 public interface ProductRepo {
@@ -14,4 +15,6 @@ public interface ProductRepo {
 	public void removeProduct(int id);
 	
 	public List<Product> getAllProduct();
+	
+	public List<Product> getProductsByCategory(Category category);
 }
