@@ -30,6 +30,9 @@ public class App
     	product.setName("Exemple");
     	boutiqueServices.addProductToCart(customer, product, 2);
     	boutiqueServices.getAllProductList();
+    	System.out.println("======================================================");
+    	CategoryDto cate = new CategoryDto(2345, "Shoes");
+    	boutiqueServices.getProductsByCategory(cate);
 	}
 	
     public static void main( String[] args )
