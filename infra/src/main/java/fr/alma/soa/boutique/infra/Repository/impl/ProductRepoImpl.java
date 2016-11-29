@@ -14,16 +14,17 @@ import fr.alma.soa.boutique.domaine.model.Product;
 import fr.alma.soa.boutique.infra.Database;
 import fr.alma.soa.boutique.infra.repository.ProductRepo;
 
-@Repository
 public class ProductRepoImpl implements ProductRepo {
 	
-	private final Logger logger = LoggerFactory.getLogger(ProductRepoImpl.class);
+	//private final Logger logger = LoggerFactory.getLogger(ProductRepoImpl.class);
 
-	@Autowired
 	private ModelFactory modelFactory;
 	
-	@Autowired
 	private Database database;
+
+	public void setDatabase(Database database) {
+		this.database = database;
+	}
 
 	public Product getProductById(int id) {
 		return database.getProducts().get(id);

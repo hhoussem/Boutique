@@ -14,14 +14,13 @@ import fr.alma.soa.boutique.domaine.model.dto.ShoppingCartDto;
 import fr.alma.soa.boutique.domaine.service.ProductService;
 import fr.alma.soa.boutique.domaine.service.ShoppingCartService;
 
-@Service
 public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 
-	@Autowired
-	private ShoppingCartService shoppingCartService;
-	@Autowired
+	//@Autowired
+	//private ShoppingCartService shoppingCartService;
 	private ProductService productService;
 	
+	/*
 	public ShoppingCartDto addProductToCart(CustomerDto customer, ProductDto product, int quantity){
 		try {
 			return shoppingCartService.addProductToCart(customer, product, quantity);
@@ -29,7 +28,7 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 			e.printStackTrace();
 		}
 		return null;
-	}
+	}*/
 	
 	public List<ProductDto> getAllProductList(){
 		List<ProductDto> products = productService.getAllProduct();
@@ -37,5 +36,9 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 			System.out.println("==> "+products.get(i).getName());
 		}
 		return products;
+	}
+	
+	public void setProductService(ProductService productService){
+		this.productService = productService;
 	}
 }

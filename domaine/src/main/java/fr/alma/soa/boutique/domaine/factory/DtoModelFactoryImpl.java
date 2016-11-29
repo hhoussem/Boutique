@@ -11,7 +11,6 @@ import fr.alma.soa.boutique.domaine.model.Product;
 import fr.alma.soa.boutique.domaine.model.ShoppingCart;
 import fr.alma.soa.boutique.domaine.model.dto.*;
 
-@Factory
 public class DtoModelFactoryImpl implements  DtoModelFactory{
 
 	/*

@@ -13,19 +13,27 @@ import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
 import fr.alma.soa.boutique.domaine.service.ProductService;
 import fr.alma.soa.boutique.infra.repository.ProductRepo;
 
-@Service
 public class ProductServiceImpl implements ProductService{
 	
-	@Autowired
 	private ProductRepo productRepo;
 	
-	@Autowired
+	public void setProductRepo(ProductRepo productRepo) {
+		this.productRepo = productRepo;
+	}
+
 	private ModelFactory modelFactory;
 	
-	@Autowired
+	public void setModelFactory(ModelFactory modelFactory) {
+		this.modelFactory = modelFactory;
+	}
+
 	private DtoModelFactory dtoModelFactory;
 	
 	
+	public void setDtoModelFactory(DtoModelFactory dtoModelFactory) {
+		this.dtoModelFactory = dtoModelFactory;
+	}
+
 	public List<ProductDto> getAllProduct() {
 		List<ProductDto> products = new ArrayList<ProductDto>();
 		for(Product pr : productRepo.getAllProduct()){
