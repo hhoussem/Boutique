@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import fr.alma.soa.boutique.api.exception.BusinessException;
 import fr.alma.soa.boutique.application.webservice.BoutiqueWebServices;
+import fr.alma.soa.boutique.domaine.model.dto.CategoryDto;
 import fr.alma.soa.boutique.domaine.model.dto.CustomerDto;
 import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
 import fr.alma.soa.boutique.domaine.model.dto.ShoppingCartDto;
@@ -40,5 +41,13 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 	
 	public void setProductService(ProductService productService){
 		this.productService = productService;
+	}
+
+	public List<ProductDto> getProductsByCategory(CategoryDto category) {
+		List<ProductDto> products = productService.getProductsByCategory(category);
+		for(int i=0;i<products.size();i++){
+			System.out.println("category :"+category.getName()+"==> "+products.get(i).getName());
+		}
+		return products;
 	}
 }

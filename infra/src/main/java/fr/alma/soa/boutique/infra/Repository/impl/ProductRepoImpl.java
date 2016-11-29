@@ -1,6 +1,7 @@
 package fr.alma.soa.boutique.infra.Repository.impl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -44,6 +45,16 @@ public class ProductRepoImpl implements ProductRepo {
 		return new ArrayList<Product>(database.getProducts().values());
 	}
 
+	public List<Product> getProductsByCategory(Category category){
+		List<Product> products = new ArrayList<Product>();
+		for (Iterator iterator = database.getProducts().entrySet().iterator(); iterator.hasNext();) {
+			Product product = (Product) iterator.next();
+			if(product.getCategory().getId() == category.getId()){
+				products.add(product);
+			}
+		}
+		return products;
+	}
 
 
 
