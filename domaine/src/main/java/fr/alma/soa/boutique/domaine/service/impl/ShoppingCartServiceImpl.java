@@ -1,7 +1,5 @@
 package fr.alma.soa.boutique.domaine.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import fr.alma.soa.boutique.api.exception.BusinessException;
 import fr.alma.soa.boutique.domaine.model.dto.*;
 import fr.alma.soa.boutique.domaine.factory.DtoModelFactory;
@@ -11,20 +9,32 @@ import fr.alma.soa.boutique.domaine.service.ShoppingCartService;
 import fr.alma.soa.boutique.infra.repository.ProductRepo;
 import fr.alma.soa.boutique.infra.repository.ShoppingCartRepo;
 
-@Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
-	@Autowired
 	private ProductRepo productRepo;
 	
-	@Autowired
 	private ShoppingCartRepo shoppingCartRepo;
 	
-	@Autowired
 	private ModelFactory modelFactory;
 	
-	@Autowired
 	private DtoModelFactory dtoModelFactory;
+	
+	public void setProductRepo(ProductRepo productRepo) {
+		this.productRepo = productRepo;
+	}
+
+	public void setShoppingCartRepo(ShoppingCartRepo shoppingCartRepo) {
+		this.shoppingCartRepo = shoppingCartRepo;
+	}
+
+	public void setModelFactory(ModelFactory modelFactory) {
+		this.modelFactory = modelFactory;
+	}
+
+	public void setDtoModelFactory(DtoModelFactory dtoModelFactory) {
+		this.dtoModelFactory = dtoModelFactory;
+	}
+
 
 	public ShoppingCartDto addProductToCart(CustomerDto customer,ProductDto prd, int quantity) throws BusinessException{
 		Product product = productRepo.getProductById(prd.getId());

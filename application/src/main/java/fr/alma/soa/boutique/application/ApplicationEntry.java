@@ -1,15 +1,11 @@
 package fr.alma.soa.boutique.application;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import fr.alma.soa.boutique.application.boot.App;
 
 public class ApplicationEntry {
 	
-	private final Logger logger = LoggerFactory.getLogger(ApplicationEntry.class);
-
 	protected ClassPathXmlApplicationContext context;
 	
 

@@ -1,8 +1,6 @@
 package fr.alma.soa.boutique.application.boot;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
 
 import fr.alma.soa.boutique.application.ApplicationEntry;
 import fr.alma.soa.boutique.application.webservice.BoutiqueWebServices;
@@ -15,6 +13,10 @@ public class App
 {
 	BoutiqueWebServices boutiqueServices;
 	
+	public void setBoutiqueServices(BoutiqueWebServices boutiqueServices) {
+		this.boutiqueServices = boutiqueServices;
+	}
+
 	private void run(){
 		CustomerDto customer = new CustomerDto();
     	customer.setAddress("tax@yahoo.fr");
@@ -26,15 +28,13 @@ public class App
     	product.setCategory(new CategoryDto());
     	product.setId(17);
     	product.setName("Exemple");
-    	//boutiqueServices.addProductToCart(customer, product, 2);
+    	boutiqueServices.addProductToCart(customer, product, 2);
     	boutiqueServices.getAllProductList();
 	}
 	
     public static void main( String[] args )
     {
-    	
-    	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"spring-core-config.xml"});
-    	BoutiqueWebServices bs = (BoutiqueWebServices) context.getBean("boutiqueWebService");
-    	bs.getAllProductList();
+    	ApplicationEntry entry = new ApplicationEntry();
+    	entry.getApp().run();
     }
 }
