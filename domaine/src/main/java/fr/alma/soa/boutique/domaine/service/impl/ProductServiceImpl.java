@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import fr.alma.soa.boutique.domaine.factory.DtoModelFactory;
 import fr.alma.soa.boutique.domaine.factory.ModelFactory;
+import fr.alma.soa.boutique.domaine.model.Category;
 import fr.alma.soa.boutique.domaine.model.Product;
+import fr.alma.soa.boutique.domaine.model.dto.CategoryDto;
 import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
 import fr.alma.soa.boutique.domaine.service.ProductService;
 import fr.alma.soa.boutique.infra.repository.ProductRepo;
@@ -39,14 +41,24 @@ public class ProductServiceImpl implements ProductService{
 		return dtoModelFactory.getProductInstance(productRepo.getProductById(id));
 	}
 
-	public void addProduct(ProductDto product) {
-		productRepo.addProduct(modelFactory.getProductInstance(product));
+	public void addProduct(ProductDto productDto) {
+		productRepo.addProduct(modelFactory.getProductInstance(productDto));
 		
 	}
 
 	public void removeProduct(int id) {
 		productRepo.removeProduct(id);
 		
+	}
+
+	public List<ProductDto> getProductsByCategory(CategoryDto categoryDto) {
+		List<ProductDto> productsDto = new ArrayList<ProductDto>();
+		Category category = modelFactory.getCategoryInstance(categoryDto);
+		for(Product pr : productRepo.getProductsByCategory(category)){
+			productsDto.add(dtoModelFactory.getProductInstance(pr));
+		}
+		
+		return productsDto;
 	}
 
 }
