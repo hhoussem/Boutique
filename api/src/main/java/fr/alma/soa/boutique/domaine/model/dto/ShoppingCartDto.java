@@ -1,15 +1,17 @@
 package fr.alma.soa.boutique.domaine.model.dto;
 
-import fr.alma.soa.boutique.domaine.model.Product;
-import fr.alma.soa.boutique.domaine.model.ShoppingCart;
-
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ShoppingCartDto{
+import fr.alma.soa.boutique.domaine.model.Product;
 
+public class ShoppingCartDto implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
 	private Map<ProductDto, Integer> products; // map of Products, quantities
 
 	public ShoppingCartDto() {

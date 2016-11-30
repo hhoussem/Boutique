@@ -1,10 +1,14 @@
 package fr.alma.soa.boutique.domaine.model.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import fr.alma.soa.boutique.domaine.model.ShoppingCart;
 
-public class OrderDto{
+public class OrderDto implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
 	private String numOrder;
 	private ShoppingCart shoppingCart;
 	private double priceTTC;

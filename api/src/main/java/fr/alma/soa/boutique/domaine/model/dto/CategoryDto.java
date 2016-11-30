@@ -1,14 +1,14 @@
 package fr.alma.soa.boutique.domaine.model.dto;
 
-import fr.alma.soa.boutique.domaine.model.Category;
+import java.io.Serializable;
 
-public class CategoryDto{
+public class CategoryDto implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
 	private int id;
 	
-
 	private String name;
-
-	
 
 	public CategoryDto(int id, String name) {
 		super();

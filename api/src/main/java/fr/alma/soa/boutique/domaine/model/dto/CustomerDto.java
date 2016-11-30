@@ -1,12 +1,12 @@
 
 package fr.alma.soa.boutique.domaine.model.dto;
 
-import fr.alma.soa.boutique.domaine.model.Customer;
-import fr.alma.soa.boutique.domaine.model.Product;
-import fr.alma.soa.boutique.domaine.model.ShoppingCart;;
+import java.io.Serializable;
 
-public class CustomerDto{
+public class CustomerDto implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	private int id;
 	private String email;
 	private String password;
