@@ -29,10 +29,15 @@ public class App
     	product.setId(17);
     	product.setName("Exemple");
     	boutiqueServices.addProductToCart(customer, product, 2);
+    	System.out.println("All products============================================");
     	boutiqueServices.getAllProductList();
-    	System.out.println("======================================================");
-    	CategoryDto cate = new CategoryDto(2345, "Shoes");
-    	boutiqueServices.getProductsByCategory(cate);
+    	CategoryDto categoryShoes = new CategoryDto(2345, "Shoes");
+    	System.out.println("Product by category :"+categoryShoes.getName()+"==============================================");
+    	boutiqueServices.getProductsByCategory(categoryShoes);
+    	System.out.println("All categories============================================");
+    	boutiqueServices.getAllCategories();
+    	System.out.println("============================================");
+
 	}
 	
     public static void main( String[] args )
