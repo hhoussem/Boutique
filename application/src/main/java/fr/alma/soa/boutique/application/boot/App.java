@@ -37,6 +37,8 @@ public class App
     	System.out.println("All categories============================================");
     	boutiqueServices.getAllCategories();
     	System.out.println("============================================");
+    	boutiqueServices.addProductToCart(customer, boutiqueServices.getAllProductList().get(0), 5);
+    	boutiqueServices.removeProductFromCart(customer, boutiqueServices.getAllProductList().get(0));
 
 	}
 	

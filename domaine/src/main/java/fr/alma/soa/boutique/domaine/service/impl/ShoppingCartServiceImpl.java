@@ -60,6 +60,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
 
 	public ShoppingCartDto removeProductFromCart(CustomerDto customer, ProductDto product) {
+		//TODO 
 		if(customer.getShoppingCart().getProduct(product.getId()) != null){
 			customer.getShoppingCart().removeProduct(product);
 			return customer.getShoppingCart();

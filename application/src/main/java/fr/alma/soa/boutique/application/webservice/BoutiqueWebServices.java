@@ -14,7 +14,12 @@ import fr.alma.soa.boutique.domaine.model.dto.ShoppingCartDto;
 public interface BoutiqueWebServices{
 	
 	public ShoppingCartDto addProductToCart(CustomerDto customer, ProductDto product, int quantity);
+	
+	public ShoppingCartDto removeProductFromCart(CustomerDto customer, ProductDto product);
+	
 	public List<ProductDto> getAllProductList();
+	
 	public List<ProductDto> getProductsByCategory(CategoryDto category);
+	
 	public List<CategoryDto> getAllCategories();
 }
