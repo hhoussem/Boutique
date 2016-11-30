@@ -1,27 +1,45 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="
-        http://www.springframework.org/schema/beans     
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context.xsd ">
- 
- 	<context:annotation-config />
-	
-	<context:component-scan base-package="fr.alma.soa.boutique.application.webservice" />
-	<context:component-scan base-package="fr.alma.soa.boutique.application.boot" />
-	<context:component-scan base-package="fr.alma.soa.boutique.domaine.service" />
-	<context:component-scan base-package="fr.alma.soa.boutique.domaine.factory" />
-	<context:component-scan base-package="fr.alma.soa.boutique.infra" />
-	<context:component-scan base-package="fr.alma.soa.boutique.infra.repository" />
-	
-	<!-- Pour simuler les accés à base de données -->
-	 <bean id="database" class="fr.alma.soa.boutique.infra.Database" />
-	 
-	 
-	  <bean id="servlet" class="fr.alma.soa.boutique.presentation.servlet.BoutiqueServlet" />
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans> 
 
+	<!-- Pour simuler les accés à base de données -->
+	<bean id="database" class="fr.alma.soa.boutique.infra.Database" />
+	<bean id="productRepo" class="fr.alma.soa.boutique.infra.Repository.impl.ProductRepoImpl">
+		<property name="database" ref="database"></property>
+	</bean>
+		<bean id="categoryRepo" class="fr.alma.soa.boutique.infra.Repository.impl.CategoryRepoImpl">
+		<property name="database" ref="database"></property>
+	</bean>
+	<bean id="shoppingCartRepo" class="fr.alma.soa.boutique.infra.Repository.impl.ShoppingCartRepoImpl">
+		<property name="database" ref="database"></property>
+	</bean>
+	<bean id="modelFactory" class="fr.alma.soa.boutique.domaine.factory.ModelFactoryImpl">
+	</bean>
+	<bean id="dtoModelFactory" class="fr.alma.soa.boutique.domaine.factory.DtoModelFactoryImpl">
+	</bean>
+	<bean id="productService" class="fr.alma.soa.boutique.domaine.service.impl.ProductServiceImpl">
+		<property name="productRepo" ref="productRepo"></property>
+		<property name="modelFactory" ref="modelFactory"></property>
+		<property name="dtoModelFactory" ref="dtoModelFactory"></property>
+	</bean>
+	<bean id="shoppingCartService" class="fr.alma.soa.boutique.domaine.service.impl.ShoppingCartServiceImpl">
+		<property name="productRepo" ref="productRepo"></property>
+		<property name="shoppingCartRepo" ref="shoppingCartRepo"></property>
+		<property name="modelFactory" ref="modelFactory"></property>
+		<property name="dtoModelFactory" ref="dtoModelFactory"></property>
+	</bean>
+		<bean id="categoryService" class="fr.alma.soa.boutique.domaine.service.impl.CategoryServiceImpl">
+		<property name="categoryRepo" ref="categoryRepo"></property>
+		<property name="modelFactory" ref="modelFactory"></property>
+		<property name="dtoModelFactory" ref="dtoModelFactory"></property>
+	</bean>
+	<bean id="boutiqueServices" class="fr.alma.soa.boutique.application.webservice.impl.BoutiqueWebServicesImpl">
+		<property name="productService" ref="productService"></property>
+		<property name="shoppingCartService" ref="shoppingCartService"></property>
+		<property name="categoryService" ref="categoryService"></property>
+	</bean>
+	<bean id="app" class="fr.alma.soa.boutique.application.boot.App" >
+		<property name="boutiqueServices" ref="boutiqueServices"></property>
+		
+	</bean>
 </beans>

@@ -47,13 +47,15 @@ public class Database
 		adidas.setId(1234);
 		adidas.setCategory(shoesCategory);		
 		adidas.setName("Adidas super Star");
+		adidas.setDescription("Best shoes for long distances");
 		adidas.setPrice(120);
 		adidas.setStockQty(100);
 		
 		Product puma = new Product();
 		puma.setId(12008);
 		puma.setCategory(shoesCategory);		
-		puma.setName("Puma");
+		puma.setName("Puma XY");
+		puma.setDescription("For kids");
 		puma.setPrice(90);
 		puma.setStockQty(205);
 		
@@ -61,6 +63,7 @@ public class Database
     	s7.setCategory(phoneCategory);
     	s7.setId(91);
     	s7.setName("Galaxy S7");
+    	s7.setDescription("3Go ram, 64Go flash, battery 3000 mAh");
     	s7.setPrice(500);
     	s7.setStockQty(40);
     	
@@ -68,6 +71,7 @@ public class Database
     	xperia.setCategory(phoneCategory);
     	xperia.setId(17);
     	xperia.setName("Sony Xperia Z5");
+    	xperia.setDescription("2Go ram, 32Go flash, battery 2400 mAh");
     	xperia.setPrice(400);
     	xperia.setStockQty(60);
     	

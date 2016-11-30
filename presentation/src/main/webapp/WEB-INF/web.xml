@@ -4,4 +4,19 @@
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>BoutiqueServlet</display-name>
+  	<servlet-name>BoutiqueServlet</servlet-name>
+  	<servlet-class>fr.alma.soa.boutique.presentation.servlet.BoutiqueServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BoutiqueServlet</servlet-name>
+  	<url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BoutiqueServlet</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
 </web-app>

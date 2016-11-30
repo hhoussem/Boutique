@@ -51,7 +51,7 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 		List<ProductDto> products = productService.getAllProduct();
 		for(int i=0;i<products.size();i++){
 			System.out.println("==> "+products.get(i).getName()+
-					" : "+products.get(i).getCategory().getName());
+					" : "+products.get(i).getCategory().getName()+" "+products.get(i).getDescription());
 		}
 		return products;
 	}
