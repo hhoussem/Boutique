@@ -7,6 +7,9 @@
 	<bean id="productRepo" class="fr.alma.soa.boutique.infra.Repository.impl.ProductRepoImpl">
 		<property name="database" ref="database"></property>
 	</bean>
+		<bean id="categoryRepo" class="fr.alma.soa.boutique.infra.Repository.impl.CategoryRepoImpl">
+		<property name="database" ref="database"></property>
+	</bean>
 	<bean id="shoppingCartRepo" class="fr.alma.soa.boutique.infra.Repository.impl.ShoppingCartRepoImpl">
 		<property name="database" ref="database"></property>
 	</bean>
@@ -25,9 +28,15 @@
 		<property name="modelFactory" ref="modelFactory"></property>
 		<property name="dtoModelFactory" ref="dtoModelFactory"></property>
 	</bean>
+		<bean id="categoryService" class="fr.alma.soa.boutique.domaine.service.impl.CategoryServiceImpl">
+		<property name="categoryRepo" ref="categoryRepo"></property>
+		<property name="modelFactory" ref="modelFactory"></property>
+		<property name="dtoModelFactory" ref="dtoModelFactory"></property>
+	</bean>
 	<bean id="boutiqueServices" class="fr.alma.soa.boutique.application.webservice.impl.BoutiqueWebServicesImpl">
 		<property name="productService" ref="productService"></property>
 		<property name="shoppingCartService" ref="shoppingCartService"></property>
+		<property name="categoryService" ref="categoryService"></property>
 	</bean>
 	<bean id="app" class="fr.alma.soa.boutique.application.boot.App" >
 		<property name="boutiqueServices" ref="boutiqueServices"></property>

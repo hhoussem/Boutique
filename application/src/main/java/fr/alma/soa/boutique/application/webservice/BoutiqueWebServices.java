@@ -16,4 +16,5 @@ public interface BoutiqueWebServices{
 	public ShoppingCartDto addProductToCart(CustomerDto customer, ProductDto product, int quantity);
 	public List<ProductDto> getAllProductList();
 	public List<ProductDto> getProductsByCategory(CategoryDto category);
+	public List<CategoryDto> getAllCategories();
 }
