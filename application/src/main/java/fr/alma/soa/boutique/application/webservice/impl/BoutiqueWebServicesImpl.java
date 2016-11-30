@@ -21,7 +21,6 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 	//@Autowired
 	private ShoppingCartService shoppingCartService;
 	
-
 	private ProductService productService;
 	
 	private CategoryService categoryService;
@@ -40,6 +39,7 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 	
 	public ShoppingCartDto addProductToCart(CustomerDto customer, ProductDto product, int quantity){
 		try {
+			System.out.println(customer.getName()+" : add "+ quantity+" of "+product.getName()+" to his Cart");
 			return shoppingCartService.addProductToCart(customer, product, quantity);
 		} catch (BusinessException e) {
 			e.printStackTrace();
@@ -70,5 +70,11 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 			System.out.println("category : ==> "+categories.get(i).getName());
 		}
 		return categories;
+	}
+
+	public ShoppingCartDto removeProductFromCart(CustomerDto customer, ProductDto product) {
+		System.out.println(customer.getName()+" :remove "+product.getName()+" from his Cart");	
+		return shoppingCartService.removeProductFromCart(customer, product);
+
 	}
 }
