@@ -1,9 +1,11 @@
 package fr.alma.soa.boutique.domaine.model.dto;
 
-import fr.alma.soa.boutique.domaine.model.Category;
-import fr.alma.soa.boutique.domaine.model.Product;
+import java.io.Serializable;
 
-public class ProductDto{
+public class ProductDto implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
 	private int id;
 	private String name;
 	private String description;
