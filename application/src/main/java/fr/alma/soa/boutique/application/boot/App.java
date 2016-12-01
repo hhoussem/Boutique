@@ -48,11 +48,14 @@ public class App
     	System.out.println("============================================");
     	boutiqueServices.removeProductFromCart(customer, boutiqueServices.getAllProductList().get(0));
     	System.out.println(boutiqueServices.getCategoryById(2345).getName());
+    	CustomerDto c1 = boutiqueServices.getCustomers().get(0);
+    	
+    	System.out.println(c1.getShoppingCart().getProducts().values().size());
 	}
 	
     public static void main( String[] args )
     {
-    	ApplicationEntry entry = new ApplicationEntry();
+    	ApplicationEntry entry = ApplicationEntry.getInstance();
     	entry.getApp().run();
     }
 }

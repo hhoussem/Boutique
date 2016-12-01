@@ -48,7 +48,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="#">About</a></li>
 					<li><a href="#">Services</a></li>
-					<li><a href="#">Contacts</a></li>
+					<li><a href="/cart">Cart(${cartSize})</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -63,13 +63,7 @@
 
 			<div class="col-md-3">
 				<p class="lead">SOA Shop</p>
-				<div class="list-group">
-
-					<c:forEach items="${allCategories}" var="category">
-						<a href="index?category=${category.id }" class="list-group-item">${category.name}</a>
-					</c:forEach>
-
-				</div>
+				
 			</div>
 
 			<div class="col-md-9">
@@ -86,15 +80,15 @@
 							<div class="thumbnail">
 								<img src="http://placehold.it/320x150" alt="">
 								<div class="caption">
-									<h4 class="pull-right">${product.price}</h4>
+									<h4 class="pull-right">${product.value}</h4>
 									<h4>
-										<a href="#">${product.name}</a>
+										<a href="#"></a>
 									</h4>
-									<p>${product.description}</p>
+									<p>${product.key.name}</p>
 								</div>
 								<div class="ratings">
-									<form action="/index" method="post">
-										<input type="submit" name="add" value="Add to chart" />
+									<form action="/cart" method="post">
+										<input type="submit" name="removeFromCart" value="Remove from cart" />
 									</form>
 								</div>
 							</div>

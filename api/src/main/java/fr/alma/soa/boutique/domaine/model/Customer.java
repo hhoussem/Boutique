@@ -14,7 +14,7 @@ public class Customer{
 	private String address;
 	private String creditCardInfo;
 	private boolean isLogged;
-	private ShoppingCart shoppingCart;
+	private ShoppingCart shoppingCart = new ShoppingCart();
 
 	public Customer(String email, String password, String name) {
 		super();
@@ -22,7 +22,7 @@ public class Customer{
 		this.password = password;
 		this.name = name;
 		this.isLogged = false;
-		this.shoppingCart = new ShoppingCart();
+		
 	}
 
 	public Customer() {

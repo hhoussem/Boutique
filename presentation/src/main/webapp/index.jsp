@@ -48,7 +48,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="#">About</a></li>
 					<li><a href="#">Services</a></li>
-					<li><a href="#">Contacts</a></li>
+					<li><a href="/cart">Cart(${cartSize})</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -94,7 +94,8 @@
 								</div>
 								<div class="ratings">
 									<form action="/cart" method="post">
-										<input type="submit" name="addToCart" value="Add to chart" />
+										<input type="hidden" name="productId" value="${product.id}" />
+										<input type="submit" name="addToCart" value="Add to cart" />
 									</form>
 								</div>
 							</div>

@@ -8,16 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import fr.alma.soa.boutique.application.ApplicationEntry;
 import fr.alma.soa.boutique.application.webservice.BoutiqueWebServices;
 import fr.alma.soa.boutique.application.webservice.impl.BoutiqueWebServicesImpl;
 import fr.alma.soa.boutique.domaine.model.dto.CategoryDto;
+import fr.alma.soa.boutique.domaine.model.dto.CustomerDto;
 import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
-import fr.alma.soa.boutique.domaine.service.ProductService;
-import fr.alma.soa.boutique.domaine.service.impl.ProductServiceImpl;
-import fr.alma.soa.boutique.presentation.boot.PresentationEntry;
 
 /**
  * Servlet implementation class ProductsServlet
@@ -40,7 +36,7 @@ public class ProductsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		PresentationEntry entry = new PresentationEntry();
+		ApplicationEntry entry = ApplicationEntry.getInstance();
 		BoutiqueWebServices boutiqueWs = entry.getContext().getBean(BoutiqueWebServicesImpl.class);
 		System.out.println("==> Et ICI?!!");
 		boutiqueWs.getProductsByCategory(new CategoryDto());
@@ -65,6 +61,10 @@ public class ProductsServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		CustomerDto customer = boutiqueWs.getCustomers().get(0);
+		int cartSize = customer.getShoppingCart().getProducts().size();
+		request.setAttribute("cartSize", cartSize);
 
 		request.setAttribute("products", products);
 

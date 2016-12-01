@@ -81,7 +81,6 @@ public class Database
     	c1.setPassword("0000");
     	c1.setName("Michael");
     	
-    	
     	//add all to list
     	categories.put(shoesCategory.getId(),shoesCategory);
     	categories.put(phoneCategory.getId(),phoneCategory);

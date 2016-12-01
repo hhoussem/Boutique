@@ -11,9 +11,20 @@
   	<servlet-name>ProductsServlet</servlet-name>
   	<servlet-class>fr.alma.soa.boutique.presentation.servlet.ProductsServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>CartServlet</display-name>
+  	<servlet-name>CartServlet</servlet-name>
+  	<servlet-class>fr.alma.soa.boutique.presentation.servlet.CartServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ProductsServlet</servlet-name>
   	<url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CartServlet</servlet-name>
+  	<url-pattern>/cart</url-pattern>
   </servlet-mapping>
 
 </web-app>

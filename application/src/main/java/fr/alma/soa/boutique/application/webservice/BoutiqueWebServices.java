@@ -3,9 +3,6 @@ package fr.alma.soa.boutique.application.webservice;
 
 import java.util.List;
 
-import fr.alma.soa.boutique.domaine.model.Customer;
-import fr.alma.soa.boutique.domaine.model.Product;
-import fr.alma.soa.boutique.domaine.model.ShoppingCart;
 import fr.alma.soa.boutique.domaine.model.dto.CategoryDto;
 import fr.alma.soa.boutique.domaine.model.dto.CustomerDto;
 import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
@@ -19,6 +16,8 @@ public interface BoutiqueWebServices{
 	
 	public List<ProductDto> getAllProductList();
 	
+	public ProductDto getProductById(int id);
+	
 	public List<ProductDto> getProductsByCategory(CategoryDto category);
 	
 	public List<CategoryDto> getAllCategories();
@@ -26,4 +25,8 @@ public interface BoutiqueWebServices{
 	public void changeCurrency(ShoppingCartDto cartDto, String newCurrency);
 	
 	public CategoryDto getCategoryById(int id);
+	
+	public List<CustomerDto> getCustomers();
+	
+	public CustomerDto getCustomerByEmail(String email);
 }

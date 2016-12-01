@@ -17,6 +17,7 @@ import fr.alma.soa.boutique.domaine.model.dto.CustomerDto;
 import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
 import fr.alma.soa.boutique.domaine.model.dto.ShoppingCartDto;
 import fr.alma.soa.boutique.domaine.service.CategoryService;
+import fr.alma.soa.boutique.domaine.service.CustomerService;
 import fr.alma.soa.boutique.domaine.service.ProductService;
 import fr.alma.soa.boutique.domaine.service.ShoppingCartService;
 
@@ -28,6 +29,8 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 	private ProductService productService;
 
 	private CategoryService categoryService;
+	
+	private CustomerService customerService;
 
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
@@ -41,6 +44,10 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 		this.shoppingCartService = shoppingCartService;
 	}
 
+	public void setCustomerService(CustomerService customerService) {
+		this.customerService = customerService;
+	}
+	
 	public ShoppingCartDto addProductToCart(CustomerDto customer, ProductDto product, int quantity) {
 		try {
 			System.out.println(customer.getName() + " : add " + quantity + " of " + product.getName() + " to his Cart");
@@ -58,6 +65,10 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 					+ " " + products.get(i).getDescription());
 		}
 		return products;
+	}
+	
+	public ProductDto getProductById(int id){
+		return productService.getProductById(id);
 	}
 
 	public List<ProductDto> getProductsByCategory(CategoryDto category) {
@@ -83,13 +94,23 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 	}
 	
 	public CategoryDto getCategoryById(int id) {
-		System.out.println("==> J'ai change ici!");
+		
 		return categoryService.getCategoryById(id);
 	}
 
 	public void changeCurrency(ShoppingCartDto cartDto, String newCurrency) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public List<CustomerDto> getCustomers() {
+		
+		return customerService.getCustomers();
+	}
+
+	public CustomerDto getCustomerByEmail(String email) {
+	
+		return customerService.getCustomerByEmail(email);
 	}
 
 	/*
