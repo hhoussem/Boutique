@@ -93,8 +93,8 @@
 									<p>${product.description}</p>
 								</div>
 								<div class="ratings">
-									<form action="/cart" method="post">
-										<input type="submit" name="addToCart" value="Add to chart" />
+									<form action="/index" method="post">
+										<input type="submit" name="add" value="Add to chart" />
 									</form>
 								</div>
 							</div>

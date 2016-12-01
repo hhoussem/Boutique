@@ -56,7 +56,7 @@ public class Database
 		puma.setCategory(shoesCategory);		
 		puma.setName("Puma XY");
 		puma.setDescription("For kids");
-		puma.setPrice(90);
+		puma.setPrice(92);
 		puma.setStockQty(205);
 		
     	Product s7 = new Product();

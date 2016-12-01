@@ -47,7 +47,7 @@ public class App
     	System.out.println("============================================");
     	System.out.println("============================================");
     	boutiqueServices.removeProductFromCart(customer, boutiqueServices.getAllProductList().get(0));
-
+    	System.out.println(boutiqueServices.getCategoryById(2345).getName());
 	}
 	
     public static void main( String[] args )
