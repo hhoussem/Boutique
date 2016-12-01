@@ -14,6 +14,7 @@ import fr.alma.soa.boutique.application.webservice.BoutiqueWebServices;
 import fr.alma.soa.boutique.application.webservice.impl.BoutiqueWebServicesImpl;
 import fr.alma.soa.boutique.domaine.model.dto.CustomerDto;
 import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
+import fr.alma.soa.boutique.domaine.model.dto.ShoppingCartDto;
 /**
  * Servlet implementation class CartServlet
  */
@@ -37,7 +38,7 @@ public class CartServlet extends HttpServlet {
 		
 		CustomerDto customer = boutiqueWs.getCustomers().get(0);
 		
-		
+		ShoppingCartDto cart = null;
 		if(request.getParameter("addToCart")!=null)
 		{
 			System.out.println("yes");
@@ -46,16 +47,19 @@ public class CartServlet extends HttpServlet {
 				int productId = Integer.parseInt(idString);
 				System.out.println(idString);
 				ProductDto newProduct =  boutiqueWs.getProductById(productId);
-				customer.getShoppingCart().addProduct(newProduct, 1);
+				cart = boutiqueWs.addProductToCart(customer, newProduct, 1);
 			}
 				
 		}
-		Map<ProductDto,Integer> products = customer.getShoppingCart().getProducts();
 
-		request.setAttribute("products", products);
-		
-		int cartSize = customer.getShoppingCart().getProducts().size();
-		request.setAttribute("cartSize", cartSize);
+		else
+		{
+			cart = boutiqueWs.getCustomers().get(0).getShoppingCart();
+		}
+		if(cart != null){
+			request.setAttribute("products", cart.getProducts());
+			request.setAttribute("cartSize", cart.getProducts().size());
+		}
 		
 		
 		request.getRequestDispatcher("cart.jsp").forward(request, response);

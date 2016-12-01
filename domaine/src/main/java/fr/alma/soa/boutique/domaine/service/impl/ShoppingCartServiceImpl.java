@@ -38,16 +38,18 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
 	public ShoppingCartDto addProductToCart(CustomerDto customer,ProductDto prd, int quantity) throws BusinessException{
 		Product product = productRepo.getProductById(prd.getId());
+		ShoppingCartDto cart =null;
 		if(product != null) {
 			if(isProductAvailable(prd.getId(), quantity)) {
-				customer.getShoppingCart().addProduct(dtoModelFactory.getProductInstance(product), quantity);
+				cart = dtoModelFactory.getCartInstance(shoppingCartRepo.addProductToCart(modelFactory.getCustomerInstance(customer), product, quantity));
+				//customer.getShoppingCart().addProduct(dtoModelFactory.getProductInstance(product), quantity);
 			} else {
 				throw new BusinessException("Requested quantity not available!");
 			}
 		} else {
 			throw new BusinessException("Product not found!");
 		}
-		return customer.getShoppingCart();
+		return cart;
 	}
 
 	public boolean isProductAvailable(int productId, int quantity) {
