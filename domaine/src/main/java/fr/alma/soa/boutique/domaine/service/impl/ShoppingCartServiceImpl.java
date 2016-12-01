@@ -42,7 +42,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		if(product != null) {
 			if(isProductAvailable(prd.getId(), quantity)) {
 				cart = dtoModelFactory.getCartInstance(shoppingCartRepo.addProductToCart(modelFactory.getCustomerInstance(customer), product, quantity));
-				//customer.getShoppingCart().addProduct(dtoModelFactory.getProductInstance(product), quantity);
 			} else {
 				throw new BusinessException("Requested quantity not available!");
 			}
@@ -62,12 +61,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
 
 	public ShoppingCartDto removeProductFromCart(CustomerDto customer, ProductDto product) {
-		//TODO 
+		ShoppingCartDto cart = null;
 		if(customer.getShoppingCart().getProduct(product.getId()) != null){
-			customer.getShoppingCart().removeProduct(product);
-			return customer.getShoppingCart();
+			 cart = dtoModelFactory.getCartInstance(shoppingCartRepo.removeProductFromCart(modelFactory.getCustomerInstance(customer), modelFactory.getProductInstance(product)));
 		}
-		return null;
+		return cart;
 	}
 
 	public ShoppingCartDto updateProductQtyFromCart(CustomerDto customer, ProductDto product, int quantity) {

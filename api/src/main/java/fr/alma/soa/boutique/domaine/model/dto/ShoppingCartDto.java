@@ -59,10 +59,9 @@ public class ShoppingCartDto implements Serializable{
 
 	public ProductDto getProduct(int id) {
 		ProductDto product =null;
-		Iterator<?> iter = products.entrySet().iterator();
-		while(iter.hasNext()){
-			Map.Entry<ProductDto, Integer> pair = (Map.Entry<ProductDto, Integer>) iter.next();
-			if(pair.getKey().getId() == id){
+		for(Entry<ProductDto, Integer> entry :products.entrySet()){
+			product = entry.getKey();
+			if(product.getId() == id){
 				break;
 			}
 		}

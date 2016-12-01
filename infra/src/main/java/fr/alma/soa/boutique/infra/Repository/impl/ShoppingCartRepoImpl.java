@@ -22,13 +22,13 @@ public class ShoppingCartRepoImpl implements ShoppingCartRepo{
 	}
 
 	public ShoppingCart removeProductFromCart(Customer customer, Product product) {
-		database.getCustomers().get(customer).getShoppingCart().removeProduct(product);
+		database.getCustomers().get(customer.getEmail()).getShoppingCart().removeProduct(product);
 		return database.getCustomers().get(customer.getEmail()).getShoppingCart();
 		
 	}
 
 	public ShoppingCart updateProductQtyFromCart(Customer customer, Product product, int quantity) {
-		database.getCustomers().get(customer).getShoppingCart().addProduct(product,quantity);
+		database.getCustomers().get(customer.getEmail()).getShoppingCart().addProduct(product,quantity);
 		return database.getCustomers().get(customer.getEmail()).getShoppingCart();
 	}
 

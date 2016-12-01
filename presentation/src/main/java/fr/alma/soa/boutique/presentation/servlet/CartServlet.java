@@ -41,7 +41,7 @@ public class CartServlet extends HttpServlet {
 		ShoppingCartDto cart = null;
 		if(request.getParameter("addToCart")!=null)
 		{
-			System.out.println("yes");
+			System.out.println("add");
 			String idString = request.getParameter("productId");
 			if(idString !=null){
 				int productId = Integer.parseInt(idString);
@@ -51,7 +51,18 @@ public class CartServlet extends HttpServlet {
 			}
 				
 		}
-
+		else if(request.getParameter("removeFromCart")!=null)
+		{
+			System.out.println("delete");
+			String idString = request.getParameter("productId");
+			if(idString !=null){
+				int productId = Integer.parseInt(idString);
+				System.out.println(idString);
+				ProductDto newProduct =  boutiqueWs.getProductById(productId);
+				cart = boutiqueWs.removeProductFromCart(customer, newProduct);
+			}
+				
+		}
 		else
 		{
 			cart = boutiqueWs.getCustomers().get(0).getShoppingCart();

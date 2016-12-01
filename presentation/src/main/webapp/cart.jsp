@@ -88,6 +88,7 @@
 								</div>
 								<div class="ratings">
 									<form action="/cart" method="post">
+										<input type="hidden" name="productId" value="${product.key.id}" />
 										<input type="submit" name="removeFromCart" value="Remove from cart" />
 									</form>
 								</div>
