@@ -98,10 +98,6 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 		return categoryService.getCategoryById(id);
 	}
 
-	public void changeCurrency(ShoppingCartDto cartDto, String newCurrency) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public List<CustomerDto> getCustomers() {
 		
@@ -113,7 +109,7 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 		return customerService.getCustomerByEmail(email);
 	}
 
-	/*
+	
 	@Override
 	public void changeCurrency(ShoppingCartDto cartDto, String newCurrency) {
 		newCurrency=newCurrency.toUpperCase();
@@ -138,5 +134,5 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 }
