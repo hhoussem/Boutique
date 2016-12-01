@@ -6,13 +6,27 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import fr.alma.soa.boutique.domaine.model.Product;
-
 public class ShoppingCartDto implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	private Map<ProductDto, Integer> products; // map of Products, quantities
+	private final String baseCurrency = "eur";
+	
+	private String currentCurrency = "eur";
+	private double currency=1; // la valeur de base/current
+
+	public String getBaseCurrency() {
+		return baseCurrency;
+	}
+
+	public String getCurrentCurrency() {
+		return currentCurrency;
+	}
+
+	public void setCurrentCurrency(String currentCurrency) {
+		this.currentCurrency = currentCurrency;
+	}
 
 	public ShoppingCartDto() {
 		this.products = new HashMap<ProductDto, Integer>();
@@ -53,5 +67,13 @@ public class ShoppingCartDto implements Serializable{
 			}
 		}
 		return product;
+	}
+
+	public double getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(double currency) {
+		this.currency = currency;
 	}
 }

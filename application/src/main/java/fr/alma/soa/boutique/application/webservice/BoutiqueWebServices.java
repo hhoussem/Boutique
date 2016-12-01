@@ -22,4 +22,6 @@ public interface BoutiqueWebServices{
 	public List<ProductDto> getProductsByCategory(CategoryDto category);
 	
 	public List<CategoryDto> getAllCategories();
+	
+	public void changeCurrency(ShoppingCartDto cartDto, String newCurrency);
 }

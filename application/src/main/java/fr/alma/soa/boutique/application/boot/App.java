@@ -23,7 +23,6 @@ public class App
     	customer.setName("Toto");
     	customer.setPassword("password");
     	customer.setCreditCardInfo("13424234235");
-    	ShoppingCartDto shoppingCart = new ShoppingCartDto();
     	ProductDto product = new ProductDto();
     	product.setCategory(new CategoryDto());
     	product.setId(17);
@@ -38,6 +37,15 @@ public class App
     	boutiqueServices.getAllCategories();
     	System.out.println("============================================");
     	boutiqueServices.addProductToCart(customer, boutiqueServices.getAllProductList().get(0), 5);
+    	System.out.println("============================================");
+    	boutiqueServices.changeCurrency(customer.getShoppingCart(), "usd");
+    	System.out.println("============================================");
+    	System.out.println("============================================");
+    	for (ProductDto p : customer.getShoppingCart().getProducts().keySet()){
+    		System.out.println("Client : "+customer.getName() +" - Produit : "+p.getName()+" - Prix = "+(p.getPrice()*customer.getShoppingCart().getCurrency())+" "+customer.getShoppingCart().getCurrentCurrency());
+    	}
+    	System.out.println("============================================");
+    	System.out.println("============================================");
     	boutiqueServices.removeProductFromCart(customer, boutiqueServices.getAllProductList().get(0));
 
 	}
