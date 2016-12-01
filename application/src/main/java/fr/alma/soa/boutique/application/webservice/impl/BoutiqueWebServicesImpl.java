@@ -81,7 +81,18 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 		return shoppingCartService.removeProductFromCart(customer, product);
 
 	}
+	
+	public CategoryDto getCategoryById(int id) {
+		System.out.println("==> J'ai change ici!");
+		return categoryService.getCategoryById(id);
+	}
 
+	public void changeCurrency(ShoppingCartDto cartDto, String newCurrency) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/*
 	@Override
 	public void changeCurrency(ShoppingCartDto cartDto, String newCurrency) {
 		newCurrency=newCurrency.toUpperCase();
@@ -106,5 +117,5 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 }
