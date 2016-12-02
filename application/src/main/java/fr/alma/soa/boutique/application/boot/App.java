@@ -1,13 +1,11 @@
 package fr.alma.soa.boutique.application.boot;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import fr.alma.soa.boutique.application.ApplicationEntry;
 import fr.alma.soa.boutique.application.webservice.BoutiqueWebServices;
 import fr.alma.soa.boutique.domaine.model.dto.CategoryDto;
 import fr.alma.soa.boutique.domaine.model.dto.CustomerDto;
 import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
-import fr.alma.soa.boutique.domaine.model.dto.ShoppingCartDto;
 
 public class App 
 {
@@ -21,7 +19,6 @@ public class App
 		CustomerDto c1 = boutiqueServices.getCustomers().get(0);
 		System.out.println(c1.getName());
 		
-		if(true)return;
 		CustomerDto customer = new CustomerDto();
     	customer.setAddress("tax@yahoo.fr");
     	customer.setName("Toto");
