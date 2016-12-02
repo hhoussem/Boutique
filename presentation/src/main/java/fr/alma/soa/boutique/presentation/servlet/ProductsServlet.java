@@ -7,10 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import fr.alma.soa.boutique.application.ApplicationEntry;
-import fr.alma.soa.boutique.application.webservice.BoutiqueWebServices;
-import fr.alma.soa.boutique.application.webservice.impl.BoutiqueWebServicesImpl;
+import fr.alma.soa.boutique.application.webservice.impl.BoutiqueServices;
+import fr.alma.soa.boutique.application.webservice.impl.BoutiqueServicesPortType;
 import fr.alma.soa.boutique.domaine.model.dto.CategoryDto;
 import fr.alma.soa.boutique.domaine.model.dto.CustomerDto;
 import fr.alma.soa.boutique.domaine.model.dto.ProductDto;
@@ -36,8 +34,8 @@ public class ProductsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		ApplicationEntry entry = ApplicationEntry.getInstance();
-		BoutiqueWebServices boutiqueWs = entry.getContext().getBean(BoutiqueWebServicesImpl.class);
+		BoutiqueServices boutiqueServices = BoutiqueServices.getInstance();
+		BoutiqueServicesPortType boutiqueWs = boutiqueServices.getBoutiqueServicesHttpSoap11Endpoint();
 		System.out.println("==> Et ICI?!!");
 		boutiqueWs.getProductsByCategory(new CategoryDto());
 		CategoryDto cat = boutiqueWs.getCategoryById(2345);

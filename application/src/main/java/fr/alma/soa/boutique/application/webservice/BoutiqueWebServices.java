@@ -29,4 +29,6 @@ public interface BoutiqueWebServices{
 	public List<CustomerDto> getCustomers();
 	
 	public CustomerDto getCustomerByEmail(String email);
+	
+	public void doTest();
 }

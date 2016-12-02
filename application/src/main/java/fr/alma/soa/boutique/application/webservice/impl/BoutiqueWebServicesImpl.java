@@ -110,7 +110,6 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 	}
 
 	
-	@Override
 	public void changeCurrency(ShoppingCartDto cartDto, String newCurrency) {
 		newCurrency=newCurrency.toUpperCase();
 		String urlCurrencyAPI = "http://api.fixer.io/latest?base="+cartDto.getBaseCurrency()+"&symbols="+newCurrency ;
@@ -127,12 +126,17 @@ public class BoutiqueWebServicesImpl implements BoutiqueWebServices {
 			}
 			in.close();
 			HashMap<String,Object> result = new ObjectMapper().readValue(jsonResult, HashMap.class);
-			currency = (double) (((HashMap<String,Object>)result.get("rates")).get(newCurrency));
+			//currency = (double) (((HashMap<String,Object>)result.get("rates")).get(newCurrency));
 			cartDto.setCurrency(currency);
 			cartDto.setCurrentCurrency(newCurrency);
 			System.out.println("Changement de devise de "+cartDto.getBaseCurrency()+" = "+currency+" "+cartDto.getCurrentCurrency());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void doTest() {
+		shoppingCartService.doTest();
 	}
 }

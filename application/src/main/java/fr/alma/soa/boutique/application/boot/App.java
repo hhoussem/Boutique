@@ -18,6 +18,10 @@ public class App
 	}
 
 	private void run(){
+		CustomerDto c1 = boutiqueServices.getCustomers().get(0);
+		System.out.println(c1.getName());
+		
+		if(true)return;
 		CustomerDto customer = new CustomerDto();
     	customer.setAddress("tax@yahoo.fr");
     	customer.setName("Toto");
@@ -48,7 +52,6 @@ public class App
     	System.out.println("============================================");
     	boutiqueServices.removeProductFromCart(customer, boutiqueServices.getAllProductList().get(0));
     	System.out.println(boutiqueServices.getCategoryById(2345).getName());
-    	CustomerDto c1 = boutiqueServices.getCustomers().get(0);
     	
     	System.out.println(c1.getShoppingCart().getProducts().values().size());
 	}

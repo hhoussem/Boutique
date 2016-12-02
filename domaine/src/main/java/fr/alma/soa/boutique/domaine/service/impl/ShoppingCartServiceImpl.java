@@ -5,6 +5,7 @@ import fr.alma.soa.boutique.domaine.model.dto.*;
 import fr.alma.soa.boutique.domaine.factory.DtoModelFactory;
 import fr.alma.soa.boutique.domaine.factory.ModelFactory;
 import fr.alma.soa.boutique.domaine.model.Product;
+import fr.alma.soa.boutique.domaine.model.ShoppingCart;
 import fr.alma.soa.boutique.domaine.service.ShoppingCartService;
 import fr.alma.soa.boutique.infra.repository.ProductRepo;
 import fr.alma.soa.boutique.infra.repository.ShoppingCartRepo;
@@ -76,6 +77,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	public OrderDto doOrder(CustomerDto customer, ShoppingCartDto shoppingCart, String deliveryAdress) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void doTest() {
+		dtoModelFactory.getCartInstance(new ShoppingCart());
 	}
 
 	

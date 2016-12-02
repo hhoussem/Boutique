@@ -30,6 +30,19 @@ public class Database
 	public Map<String,Customer> getCustomers() {
 		return customers;
 	}
+	
+	public Customer getCurrentUser(){
+		if(this.customers.values().size()>0){
+			return (Customer) customers.values().toArray()[0];
+		}else{
+			Customer c1 = new Customer();
+	    	c1.setEmail("toto@gmail.com");
+	    	c1.setPassword("0000");
+	    	c1.setName("Michael");
+	    	customers.put(c1.getEmail(),c1);
+	    	return c1;
+		}
+	}
     
     public void init()
     {

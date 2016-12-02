@@ -10,7 +10,7 @@ public class ShoppingCartDto implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private Map<ProductDto, Integer> products; // map of Products, quantities
+	private Map<ProductDto, Integer> products = new HashMap<ProductDto, Integer>(); // map of Products, quantities
 	private final String baseCurrency = "eur";
 	
 	private String currentCurrency = "eur";
@@ -66,6 +66,14 @@ public class ShoppingCartDto implements Serializable{
 			}
 		}
 		return product;
+	}
+	
+	public ProductDto getProduct(){
+		return new ProductDto();
+	}
+	
+	public void setProduct(ProductDto product){
+		//TODO
 	}
 
 	public double getCurrency() {

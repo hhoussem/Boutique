@@ -32,4 +32,6 @@ public interface ShoppingCartService {
 	
 	public OrderDto doOrder(CustomerDto customer, ShoppingCartDto shoppingCart, String deliveryAdress);
 	
+	public void doTest();
+	
 }

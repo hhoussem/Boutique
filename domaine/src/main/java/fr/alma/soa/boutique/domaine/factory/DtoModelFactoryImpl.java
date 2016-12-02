@@ -69,7 +69,6 @@ public class DtoModelFactoryImpl implements  DtoModelFactory{
 		ShoppingCartDto cart = null;
 		if(entity!=null){
 			cart = new ShoppingCartDto();
-			//cart.setId(entity.getId());
 			Map<ProductDto, Integer> products = new HashMap<ProductDto, Integer>();
 			for(Entry<Product, Integer> entry : entity.getProducts().entrySet()){
 				products.put(getProductInstance(entry.getKey()), entry.getValue());

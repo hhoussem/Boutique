@@ -24,7 +24,7 @@ public class ShoppingCart{
 	}
 
 	public void addProduct(Product product, int qty) {
-		
+		System.out.println("====================> Ajout du produit dans le panier!!");
 			products.put(product, qty);
 	}
 
